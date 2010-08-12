@@ -1,0 +1,64 @@
+
+## naukri.com upload -
+USERNAME		# * Username
+PASSWORD		# * Password
+CPASSWORD		# * Confirm Password
+CNAME			# Your Name
+
+naukri.com looks cumbersome as most of the tags in html are generate via Js and are not displayed in source.
+They have to be somehow manually created. There are 13 visible mandatory input fields, plus one resume upload field and some hidden ones.
+Also, the mobile no. is compulsory here.
+
+## monster.com upload -
+It is a two step process. The html source does show all the input tags.
+
+stage 1
+http://my.monsterindia.com/create_account.html
+
+parameters -
+uid					# HIDDEN
+ru					# HIDDEN
+job					# HIDDEN
+ajax_flag			# HIDDEN
+action				# HIDDEN
+from				# HIDDEN
+redirect_flag		# HIDDEN
+redirect_url		# HIDDEN
+db_mobile			# HIDDEN
+email				# *
+firstName			# *
+lastName
+userName			# *
+passwd				# *
+password			# *
+currentloc			# * select tag
+other_currentloc
+mobile				# *
+isd					# *
+std					# *
+phone				# *
+gender				# *
+keySkills
+opt_ins
+submit1				# value="Submit"
+
+
+stage 2
+http://my.monsterindia.com/resume_stage2.html?uid=31361990&job=&action=&from=&login=hari6165&fname=hari&lname=&oresid=&ru=&in_lst=,32,&c_lst=,22,&swap_flag=0&email=hari@hari.com&login_flag=1&redirect_url=
+http://my.monsterindia.com/resume_stage2.html?
+uid=31361990
+&job=
+&action=
+&from=
+&login=hari6165
+&fname=hari
+&lname=
+&oresid=
+&ru=
+&in_lst=,32,
+&c_lst=,22,
+&swap_flag=0
+&email=hari@hari.com
+&login_flag=1
+&redirect_url=
+

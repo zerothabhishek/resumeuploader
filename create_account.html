@@ -1,0 +1,1484 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Monster - Find Jobs with Monster India. Submit Resume on Monster</title>
+<META NAME="Description" CONTENT="Submit Resume for Free on Monster. Apply jobs in India through Monster.com. Find jobs for Indian cities at Monsterindia.com">
+<META NAME="Keywords" CONTENT="post resume, Monster Jobs, Monster India, monster.com, monsterindia.com, jobs for indian, monsterindia, monster, resumes, cv, free resume, how to write a resume, write resume, create a resume, online resume, cv writers, jobs, job, submit resume">
+<meta name="robots" content="index, follow">
+
+<link href="http://media.monsterindia.com/v2/js/common/seeker/css/s_1-min_v1.css" type="text/css" rel="stylesheet" />
+<script>var Mons={};var MJS={};Mons.BASE_SERVER='monsterindia.com';Mons.LANG='en';Mons.LANG_MEDIA_PATH='';Mons.EN_RIGHT_AR_LEFT='right';Mons.EN_LEFT_AR_RIGHT='left'; try{document.execCommand("BackgroundImageCache",false,true);}catch(err){}</script>
+<script src="http://media1.monsterindia.com/v2/js/common/seeker/basic-min_v5.js" language="javascript" ></script>
+<script src="http://media1.monsterindia.com/v2/js/common/seeker/alert-min_v5.js" language="javascript" ></script>
+<script src="http://media1.monsterindia.com/v2/js/common/seeker/combi-skr.js" language="javascript" ></script>
+<script src="http://media1.monsterindia.com/v2/js/common/seeker/utils-min_v6.js" language="javascript" ></script>
+<script src="http://media1.monsterindia.com/v2/js/common/seeker/vld-min_v5.js" language="javascript" ></script>
+<script src="http://media1.monsterindia.com/v2/js/common/static_js/loadIndCatRole_1_v4.js" language="javascript" ></script>
+<script src="http://media1.monsterindia.com/v2/js/common/seeker/ajax-min_v5.js" language="javascript" ></script>
+
+<script src="http://media1.monsterindia.com/v2/js/common/seeker/ajax-min_v5.js" language="javascript" ></script>
+
+<script>
+var HINT = {
+		EMAILID: {
+						HINT_TEXT: 'Please give your complete email ID i.e. a_vikas_agarwal@xyz.com',
+						FIELD_NAME: "email"
+				},
+		FNAME: {
+						HINT_TEXT: 'Maximum 50 characters',
+						FIELD_NAME: "firstName"
+				},
+		UNAME: {
+						HINT_TEXT: 'e.g. pardeep_shandilya, faisal.aqil.<br>Please do not include spaces in your username.',
+						FIELD_NAME: "userName"
+				},
+		PASS: {
+						HINT_TEXT: 'Minimum 4 characters',
+						FIELD_NAME: "passwd"
+				},
+		PASS_TEMP:{
+						FIELD_NAME: "passwd_temp"
+				},
+		ISD_CODE: {
+						HINT_TEXT: 'Country code, area code, phone number',
+						FIELD_NAME:"isd"
+				},
+		STD_CODE: {
+						HINT_TEXT: 'Country code, area code, phone number',
+						FIELD_NAME:"std"
+				},
+		PHONE_NO: {
+						HINT_TEXT: 'Country code, area code, phone number',
+						FIELD_NAME: "phone"
+
+				},
+		MOBILE_NO: {
+						HINT_TEXT: 'Please fill either Phone number or Mobile number.',
+						FIELD_NAME: "mobile"
+				},
+		CLOCATION: {
+						HINT_TEXT: 'If your city is not listed here, please type it in the box below.',
+						FIELD_NAME: "currentloc"
+					},
+		OTHLOCATION:{
+						FIELD_NAME: "other_currentloc"
+					},
+		PLOCATION: {
+						HINT_TEXT: 'Only select locations that you are willing to work in. Press <span class="td_greyBold">Ctrl key</span> to select multiple job locations.',
+						FIELD_NAME: "pref_location"
+					},
+		CUR_NATIONALITY:
+					{
+						FIELD_NAME: "nationality"
+					},
+		GENDER1:
+					{
+						FIELD_NAME: "gender"
+					},
+		WORK_EXP:
+					{
+						FIELD_NAME: "exp_in_months"
+					},
+		CUR_INDUSTRY:
+					{
+						HINT_TEXT: 'You can select maximum 2 industries.<br><span class="txt_grey small">Press <span class="bold">Ctrl key</span> to select multiple industries.</span>',
+						FIELD_NAME: "industry"
+					},
+		CATEGORY: {
+						HINT_TEXT: 'You can select maximum 2 functions.<br><span class="txt_grey small">Press <span class="bold">Ctrl key</span> to select multiple functions.</span>',
+						FIELD_NAME: "jobCategory"
+				},
+		SKILLS: {
+						HINT_TEXT: '&bull; List your work-related skills / competency areas to provide a quick overview of your abilities.<br />&bull; Enter Skills separated by a comma (,).',
+						FIELD_NAME: "keySkills"
+				},
+		ACCPRIVACY:{
+					FIELD_NAME: "accept_privacy"	
+				}
+		};
+
+var JS_ERROR = {
+		email: {
+				VALIDATION: [
+								{	'FIELD_NAME':'email', 
+									'VALIDATE_TYPE': ['NOT_NULL'], 
+									'MSG': 'Please fill Email Address.'
+								},
+								{	'FIELD_NAME':'email', 
+									'VALIDATE_TYPE': ['VALID_EMAIL'], 
+									'MSG': 'Please check the given Email Address. It is an invalid one.'
+								}
+							 ],
+				ERR_ID :'ERR_EMAIL'
+				},
+		firstName: {
+					VALIDATION: [
+									{   'FIELD_NAME':'firstName',
+										'VALIDATE_TYPE': ['NOT_NULL'],
+										'MSG': 'Please fill First Name.'
+									},
+									{  'FIELD_NAME':'firstName',
+										'VALIDATE_TYPE': ['IS_VALID_BY_FUNC'],
+										'CHK_VALID_FUNC': 'FNameChk()',
+										'MSG': 'Please fill First Name.'
+									},
+									 {  'FIELD_NAME':'firstName',
+										'VALIDATE_TYPE': ['MAX_CHAR_LEN:50'],
+										'MSG': 'The given First Name is too large. Please ensure that maximum 50 characters are given.'
+									}
+								],
+							
+					ERR_ID: 'ERR_FNAME'
+				},
+		userName: {
+					VALIDATION: [
+									{   'FIELD_NAME':'userName',
+										'VALIDATE_TYPE': ['NOT_NULL'],
+										'MSG': 'Please fill a valid Username.'
+									},
+									 {  'FIELD_NAME':'userName',
+										'VALIDATE_TYPE': ['MIN_CHAR_LEN:4'],
+										'MSG': 'The given Username is too short. Please ensure that atleast 4 characters are given.'
+									}
+								],
+					ERR_ID: 'ERR_UNAME'
+				},
+		passwd: {
+					VALIDATION: [
+									{   'FIELD_NAME':'passwd',
+										'VALIDATE_TYPE': ['NOT_NULL'],
+										'MSG': 'You have not keyed in the Password. Please do so to proceed.'
+									},
+									 {  'FIELD_NAME':'passwd',
+										'VALIDATE_TYPE': ['MIN_CHAR_LEN:4'],
+										'MSG': 'The given Password is too short. Please ensure that atleast 4 characters are given.'
+									},
+									{  'FIELD_NAME':'passwd',
+									   'VALIDATE_TYPE': ['MAX_CHAR_LEN:32'],
+									   'MSG': 'The given Password is too long. Please ensure that atmost 32 characters are given'
+									},
+									{  'FIELD_NAME':'passwd',
+										'VALIDATE_TYPE': ['NOT_START_WITH_SPACE'],
+										'MSG': 'Password can not start or end with space'
+									},
+									{  'FIELD_NAME':'passwd',
+										'VALIDATE_TYPE': ['NOT_END_WITH_SPACE'],
+										'MSG': 'Password can not start or end with space'
+									}
+								],
+					ERR_ID: 'ERR_PASS'
+				},
+		passwd_temp:{
+					VALIDATION: [
+									{   'FIELD_NAME':'passwd_temp',
+										'VALIDATE_TYPE': ['NOT_NULL'],
+										'MSG': 'You have not keyed in the Confirm Password. Please do so to proceed.'
+									},
+									 {  'FIELD_NAME':'passwd_temp',
+										'VALIDATE_TYPE': ['IS_VALID_BY_FUNC'],
+										'CHK_VALID_FUNC': 'confirmPassword()',
+										'MSG': 'Confirm Password does not match the Password given earlier.'
+									}
+								],
+					ERR_ID: 'ERR_PASS_TEMP'
+				},
+		phone: {
+				VALIDATION: [
+									{  'FIELD_NAME':'phone',
+									   'VALIDATE_TYPE': ['IS_VALID_BY_FUNC'],
+									   'CHK_VALID_FUNC': 'eitherPhoneOrMobile()',
+									   'MSG': 'Please fill either Phone number or Mobile number.'
+									}
+								],
+					ERR_ID: 'ERR_PHONE'
+				},
+		currentloc: {
+					VALIDATION: [
+									{  'FIELD_NAME':'currentloc',
+									   'VALIDATE_TYPE': ['IS_VALID_BY_FUNC'],
+									   'CHK_VALID_FUNC': 'curOrOtherLoc()',
+									   'MSG': 'Please select Current Location.'
+									}
+								],
+					 ERR_ID: 'ERR_CURLOC'
+					},
+		other_currentloc: {
+					VALIDATION: [
+									{  'FIELD_NAME':'other_currentloc',
+                                       'VALIDATE_TYPE': ['IS_VALID_BY_FUNC'],
+                                       'CHK_VALID_FUNC': 'curOrOtherLoc()',
+                                       'MSG': 'Please select Current Location.'
+                                    },
+									{  'FIELD_NAME':'other_currentloc',
+									   'VALIDATE_TYPE': ['IS_VALID_BY_FUNC'],
+									   'CHK_VALID_FUNC': 'specifyOthCurLoc()',
+									   'MSG': 'Please specify "Other" Current Location.'
+									}
+								],
+					 ERR_ID: 'ERR_OTH_CURLOC'
+					},
+
+		nationality: {
+					  VALIDATION: [
+									{   'FIELD_NAME':'nationality',
+										'VALIDATE_TYPE': ['NOT_NULL','MIN_SELECTED:1'],
+										'MSG': 'Please select your Nationality.'
+									}
+								  ],
+					 ERR_ID: 'ERR_NATIONALITY'
+				},
+		gender: {
+				VALIDATION: [
+							 {  'FIELD_NAME':'gender',
+								'VALIDATE_TYPE': ['IS_VALID_BY_FUNC'],
+								'CHK_VALID_FUNC': 'genderCheck()', 
+								'MSG': 'Please select your gender.'
+							 }
+							],
+					 ERR_ID: 'ERR_GENDER1'
+				},
+		exp_in_months: {
+						VALIDATION: [
+							 {  'FIELD_NAME':'exp_in_months',
+								'VALIDATE_TYPE': ['IS_VALID_BY_FUNC'],
+								'CHK_VALID_FUNC': 'totalExpCheck()',
+								'MSG': 'Please select Working Experience.'
+							 }
+							],
+					 ERR_ID: 'ERR_WORK_EXP'
+				},
+		industry: {
+					VALIDATION: [
+							 {  'FIELD_NAME':'industry',
+								'VALIDATE_TYPE': ['IS_VALID_BY_FUNC'],
+								'CHK_VALID_FUNC': 'industry_mandatroryORnot()',
+								'MSG': 'Please select at least one Industry.'
+							 },
+							{  'FIELD_NAME':'industry',
+								'VALIDATE_TYPE': ['MAX_SELECTED:2'],
+								'MSG': 'You can select only a maximum of two Industries.'
+							 }
+							],
+					 ERR_ID: 'ERR_INDUS'
+					},
+
+		jobCategory: {
+						VALIDATION: [
+							 {  'FIELD_NAME':'jobCategory',
+								'VALIDATE_TYPE': ['NOT_NULL'],
+								'MSG': 'Please select at least one Function.'
+							 },
+							{  'FIELD_NAME':'jobCategory',
+								'VALIDATE_TYPE': ['MAX_SELECTED:2'],
+								'MSG': 'You can select only a maximum of two Job function.'
+							 }
+							],
+					 ERR_ID: 'ERR_JOBCAT'
+				},
+		keySkills: {
+					VALIDATION: [
+							 {  'FIELD_NAME':'keySkills',
+								'VALIDATE_TYPE': ['IS_VALID_BY_FUNC'],
+								'CHK_VALID_FUNC': 'keySkillsChk()',
+								'MSG': 'Please fill Key Skills.'
+							 }
+							],	
+					 ERR_ID: 'ERR_KEYSKILL'
+				}
+		};
+
+		
+		function funAfterLoading()
+{
+	return;
+}
+
+function logError( logMessage )
+{
+	var msg2Log = "FRMUID:~STAGE:1~"+logMessage.join('~');
+
+	var pairs = new Array();
+	pairs.push("msg+="+encodeURIComponent(msg2Log));
+
+	var postData = pairs.join("&");
+
+	MJS.AJAX.sendRequest('http://my.monsterindia.com/ajax_log.html',funAfterLoading,postData);
+}
+
+var focus_flag = 1;
+function onSubmitJSChks(HINT)
+{
+	focus_flag = 0;
+	var ret = true;
+
+	var logMessage = [];
+	for(var key in HINT)
+	{
+		var logSucErrFlag = 'SUC';
+		var val = hintEvent(key, "HIDE"); 
+		if(!val && val != undefined)
+		{
+			logSucErrFlag = 'ERR';
+			ret = false;
+		}
+
+		// Logging of Data
+		if ( HINT[key].FIELD_NAME && document.forms['CREATEACCTFORM'][HINT[key].FIELD_NAME] )
+		{
+			logMessage.push(HINT[key].FIELD_NAME+':'+logSucErrFlag);
+			var fieldVal = MJS.VLD.getValue(document.forms['CREATEACCTFORM'][HINT[key].FIELD_NAME]);
+			logMessage.push(fieldVal.join(','));
+		}
+		//
+	}
+
+	if (ret == false)
+	{
+		logError(logMessage);
+		alert("Fields marked in Red need to be filled.");
+	}
+	return ret;
+}
+
+function hintEvent(HintID, action)
+{
+	action = action ? action : 'SHOW';
+	if ( action == 'SHOW' && HINT[HintID] && HINT[HintID].HINT_TEXT != null )
+	{
+		document.getElementById(HintID).innerHTML = '<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="3" align="right" valign="top" style="padding:6px 3px 0px 0px;"><img src="http://media.monsterindia.com/v2.1/trans.gif"   width="5" height="8" style="background:url(http://media.monsterindia.com/v2.1/icon.png) no-repeat -39px -11px"></td><td width="4" valign="top" class="bg_grey"><img src="http://media.monsterindia.com/v2.1/trans.gif"   width="4" height="4" style="background:url(http://media.monsterindia.com/v2.1/icon.png) no-repeat -47px top;"></td><td class="bg_grey"><img src="http://media.monsterindia.com/v2.1/trans.gif"   width="5" height="5"></td><td width="4" valign="top" class="bg_grey"><img src="http://media.monsterindia.com/v2.1/trans.gif"   width="4" height="4" style="background:url(http://media.monsterindia.com/v2.1/icon.png) no-repeat -51px top;"></td></tr><tr><td valign="top" class="bg_grey"><img src="http://media.monsterindia.com/v2.1/trans.gif"   width="4" height="4"></td><td class="bg_grey">'+ HINT[HintID].HINT_TEXT +'</td><td valign="top" class="bg_grey"><img src="http://media.monsterindia.com/v2.1/trans.gif"   width="4" height="4"></td></tr><tr><td width="4" valign="bottom" class="bg_grey"><img src="http://media.monsterindia.com/v2.1/trans.gif"   width="4" height="4" style="background:url(http://media.monsterindia.com/v2.1/icon.png) no-repeat -47px -4px;"></td><td class="bg_grey"><img src="http://media.monsterindia.com/v2.1/trans.gif"   width="5" height="5"></td><td width="4" valign="bottom" class="bg_grey"><img src="http://media.monsterindia.com/v2.1/trans.gif"   width="4" height="4" style="background:url(http://media.monsterindia.com/v2.1/icon.png) no-repeat -51px -4px;"></td></tr></table>';
+		
+		document.getElementById(HintID).style.position = 'absolute';
+		document.getElementById(HintID).style.display = '';
+	}
+	else if ( action == 'HIDE' && HINT[HintID] && document.getElementById(HintID))
+	{
+		// Commeting this code because creating error on create account ( Radio button )
+		document.getElementById(HintID).style.display = 'none';
+		if(!isErrMsg( HintID ))
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+}
+
+function isErrMsg( HINT_ID )
+{
+	if ( HINT[HINT_ID].FIELD_NAME )
+	{
+		var fldName = HINT[HINT_ID].FIELD_NAME;
+		//console.log(JS_ERROR[fldName]);
+		if(JS_ERROR[fldName] != undefined)
+		{
+			//console.log(JS_ERROR[fldName]);
+			var validation = JS_ERROR[fldName].VALIDATION;
+			//console.log(validation);
+		
+			var fieldErrObj = MJS.VLD.isValidForm({ 'FRM_OBJ': document.CREATEACCTFORM, FOCUS_OBJ_ON_ERR:0, IS_ALERT: 0,  VALIDATION: validation, RET_TYPE: 'FIELD_ERR_MSG' });
+			//console.log(fieldErrObj);
+			
+			var fieldType;
+			if(document.CREATEACCTFORM[fldName].length > 1 && document.CREATEACCTFORM[fldName][0].type == 'radio')
+			{
+				fieldType = 'radio';
+			}
+			else
+			{
+				fieldType = document.CREATEACCTFORM[fldName].type;
+			}
+			//console.log('fieldtype:'+fieldType);
+		
+			if (! fieldErrObj.SUCCESS )
+			{
+				//console.log("Field Name : "+ fldName + " - ERR_ID : " + JS_ERROR[fldName].ERR_ID + " - ERR : "+ fieldErrObj.FIELD_ERR_MSG[fldName]);
+				if(fieldType == 'select-one' || fieldType == 'select-multiple' || fieldType == 'radio' || fieldType =='checkbox' || fldName == 'phone')
+				{
+					var table_id = fldName+'_border';
+					document.getElementById(table_id).style.borderColor = 'red';
+					document.getElementById(table_id).style.borderWidth = '1px';
+					document.getElementById(table_id).style.borderStyle = 'solid';
+				
+				}
+				else
+				{
+					document.CREATEACCTFORM[fldName].className='border_red';
+				}
+				if ( JS_ERROR[fldName].ERR_ID )
+				{
+					document.getElementById(JS_ERROR[fldName].ERR_ID).innerHTML = fieldErrObj.FIELD_ERR_MSG[fldName][0];
+					document.getElementById(JS_ERROR[fldName].ERR_ID).style.display = '';
+				}
+				if(fieldErrObj.OBJ_TO_FOCUS && focus_flag == 0)
+				{
+					MJS.VLD.focusObj(fieldErrObj.OBJ_TO_FOCUS);
+					focus_flag = 1;
+				}
+				return false;
+			}
+			else
+			{
+				if(fieldType == 'select-one' || fieldType == 'select-multiple' || fieldType == 'radio' || fieldType =='checkbox' || fldName == 'phone')
+				{
+					var table_id = fldName+'_border';
+					document.getElementById(table_id).style.borderColor = '';
+					document.getElementById(table_id).style.borderWidth = '';
+					document.getElementById(table_id).style.borderStyle = '';
+				
+				}
+				else
+				{
+					document.CREATEACCTFORM[fldName].className='';
+				}
+				document.getElementById(JS_ERROR[fldName].ERR_ID).style.display = 'none';
+				return true;
+			}
+		}
+		else
+		{
+			return true;
+		}
+	}
+	else
+	{
+		return true;
+	}
+}
+
+
+
+
+
+function FNameChk()
+{
+objFname = document.forms['CREATEACCTFORM']['firstName'];
+if(objFname.value == 'First name')
+{
+return false;
+}
+else
+{
+return true;
+}
+}
+
+function confirmPassword()
+{
+objPass = document.forms['CREATEACCTFORM']['passwd_temp'];
+if(!(objPass.value == document.forms['CREATEACCTFORM']['passwd'].value))
+{
+return false;
+}
+else
+{
+return true;
+}
+
+}
+
+function eitherPhoneOrMobile()
+{
+objPhone        = document.forms['CREATEACCTFORM']['phone'];
+objmobile       = document.forms['CREATEACCTFORM']['mobile'];
+if ( !(objPhone.value) && objmobile.value.length < 6 )
+{
+return false;
+}
+else
+{
+return true;
+}
+
+}
+
+function curOrOtherLoc()
+{
+objCurLoc    =  document.forms['CREATEACCTFORM']['currentloc'];
+objOthCurLoc =  document.forms['CREATEACCTFORM']['other_currentloc'];
+
+if (!(objCurLoc.value.search (/^\s*[0-9+-][0-9]*\s*$/) >= 0) && objOthCurLoc.value == '')
+{
+return false;
+}
+else
+{
+return true;
+}
+
+}
+
+function specifyOthCurLoc()
+{
+objCurLoc    =  document.forms['CREATEACCTFORM']['currentloc'];
+objOthCurLoc =  document.forms['CREATEACCTFORM']['other_currentloc'];
+
+var otherIDs = "198,197";
+var idToFind = objCurLoc.options[objCurLoc.selectedIndex].value;
+var found = otherIDs.match("\\b"+idToFind+"\\b");
+
+if(objOthCurLoc.value == '' && found != '' && found != null)
+{	
+if ( objOthCurLoc.value == '' )
+{
+	return false;
+}
+}
+else
+{
+return true;
+}
+}
+
+function genderCheck()
+{
+objSex = document.forms['CREATEACCTFORM']['gender'];
+var sex_flag = 0;
+for(var j=0;j<objSex.length;j++)
+{
+if(objSex[j].checked){
+	sex_flag = 1;
+}
+}
+if(!sex_flag)
+{
+return false;
+}
+else
+{
+return true;
+}
+
+}
+
+function totalExpCheck()
+{
+objy = document.forms['CREATEACCTFORM']['exp_in_years'];
+objm = document.forms['CREATEACCTFORM']['exp_in_months'];
+if (objm.options[objm.selectedIndex].value == '' && objy.options[objy.selectedIndex].value == '' )
+{
+return false;
+}
+else
+{
+return true;
+}
+
+}
+
+function industry_mandatroryORnot()
+{
+    objy = document.forms['CREATEACCTFORM']['exp_in_years'];
+    objm = document.forms['CREATEACCTFORM']['exp_in_months'];
+    obji = document.forms['CREATEACCTFORM']['industry'];
+	var subchanmal_id = 1; 
+	if(obji.selectedIndex == -1)
+	{
+		obji.selectedIndex = 0
+	}
+    if ((objm.options[objm.selectedIndex].value != 0 || objy.options[objy.selectedIndex].value != 0 || subchanmal_id == 5) && obji.options[obji.selectedIndex].value == '')
+    {
+		var jbcValArr = MJS.VLD.getValue(document.forms['CREATEACCTFORM']['jobCategory']);
+		if (jbcValArr.length)
+		{
+			return true;
+		}
+
+        return false;
+    }
+    else
+    {		
+        return true;
+    }
+}
+
+function keySkillsChk()
+{
+objKeySkill = document.forms['CREATEACCTFORM']['keySkills'];
+// key skills is mandatory only if job category is IT
+category = document.getElementById('id_jobCategory');
+itCategory = 22;
+
+if ((category.value == itCategory) && !(trim(objKeySkill.value)) )
+{
+return false;
+}
+else
+{
+return true;
+}
+
+}
+
+
+
+// Removes leading whitespaces
+function LTrim( value )
+{
+var re = /\s*((\S+\s*)*)/;
+return value.replace(re, "$1");
+}
+
+// Removes ending whitespaces
+function RTrim( value )
+{
+var re = /((\s*\S+)*)\s*/;
+return value.replace(re, "$1");
+}
+
+// Removes leading and ending whitespaces
+function trim( value )
+{
+return LTrim(RTrim(value));
+}
+
+
+
+
+
+</script>
+<script language='javascript'>
+var enabled_logjs = 1;
+var em  = new Array();
+var st = new Array();
+em[1] = "5,3,23,84";em[2] = "5,8,21,26,34,37,39,41,44,45,52,54,60,80,83,85,88,89,90,92,98,71";em[3] = "7";em[4] = "55";em[5] = "22";em[6] = "20";em[7] = "25";em[8] = "5,2,9,11,12,14,16,17,19,22,28,30,50,31,33,35,56,58,61,63,65,66,67,77,78,82,87,96,74";em[9] = "27";em[10] = "47";em[11] = "53";em[12] = "79";em[13] = "5,2,4,12,13,15,18,22,24,29,35,40,41,43,46,60,64,68,81,92,99,70";em[14] = "5";em[15] = "5";em[16] = "5";em[17] = "5,7,22,32,36,47,55,97,98,72";em[18] = "5";em[19] = "5,8,21,26,34,37,39,44,45,52,54,60,80,83,85,88,89,90,92,71";em[20] = "7";em[21] = "5,1,38,42,48,49,51,57,86,93,94,75";em[22] = "62";em[23] = "22";em[24] = "20";em[25] = "62";em[26] = "27";em[27] = "5,2,6,9,11,12,14,16,17,19,22,28,30,50,31,35,56,60,61,63,65,66,67,77,78,81,82,87,91,96,74";em[28] = "53";em[29] = "79";em[30] = "5,1,2,7,11,12,17,18,19,20,22,24,26,28,30,36,38,40,47,48,50,52,53,54,57,59,61,62,63,66,79,81,87,88,92,94,97,98,71,73,74,75,76";em[31] = "5,2,4,6,12,13,15,18,22,24,29,35,40,41,43,46,60,64,68,69,81,92,95,99,70";em[32] = "22";em[33] = "5,7,22,32,36,47,55,97,98,72";em[34] = "5,1,38,42,48,49,51,57,86,93,94,75";em[35] = "5,1,2,7,11,12,17,18,19,20,22,24,26,28,30,36,38,40,47,48,50,52,53,54,57,59,61,62,63,66,79,81,87,88,92,94,97,98,71,73,74,75,76";em[36] = "70";em[37] = "5,2,4,7,8,9,11,12,13,14,15,16,17,18,19,20,21,22,24,25,26,27,28,29,30,31,33,34,35,37,39,40,41,43,44,45,46,47,50,52,53,54,55,56,58,60,61,63,64,65,66,67,68,77,78,79,80,81,82,83,85,87,88,89,90,92,96,97,98,99,70,71,74";em[38] = "5";em[39] = "1,5,7,8,10,13,18,26,30,31,38,43,47,48,50,53,55,57,62,63,64,68,70,78,79,81,82,92,94,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128";em[40] = "1,5,7,8,10,13,18,26,30,31,38,43,47,48,50,53,55,57,62,63,64,68,70,78,79,81,82,92,94,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128";em[41] = "1,5,7,8,10,13,18,26,30,31,38,43,47,48,50,53,55,57,62,63,64,68,70,78,79,81,82,92,94,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128";em[42] = "1,5,7,8,10,13,18,26,30,31,38,43,47,48,50,53,55,57,62,63,64,68,70,78,79,81,82,92,94,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128";em[43] = "129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151";em[44] = "";em[45] = "";em[46] = "";em[47] = "";em[48] = "";em[49] = "";em[50] = "";
+st[1] = "Advertising/Mass Communication";st[2] = "Agriculture";st[3] = "ALTP";st[4] = "Anthropology";st[5] = "Any";st[6] = "Applied Mechanics";st[7] = "Architecture";st[8] = "Arts&Humanities";st[9] = "Automobile";st[10] = "Aviation";st[11] = "Aviation / Aeronautical";st[12] = "Bio-Chemistry/Bio-Technology";st[13] = "Biology";st[14] = "Biomedical";st[15] = "Botany";st[16] = "Ceramics";st[17] = "Chemical";st[18] = "Chemistry";st[19] = "Civil";st[20] = "Commerce";st[21] = "Communication";st[22] = "Computers";st[23] = "CPL";st[24] = "Dairy Technology";st[25] = "Dental";st[26] = "Economics";st[27] = "Education";st[28] = "Electrical";st[29] = "Electronics";st[30] = "Electronics/Telecommunications";st[31] = "Energy";st[32] = "Engineering";st[33] = "Engineering Physics";st[34] = "English";st[35] = "Environmental science";st[36] = "Fashion Design/Other Designing";st[37] = "Film";st[38] = "Finance";st[39] = "Fine Arts";st[40] = "Food Technology";st[41] = "General";st[42] = "General Management & Small Business";st[43] = "Geology";st[44] = "Hindi";st[45] = "History";st[46] = "Home science";st[47] = "Hotel Management";st[48] = "HR/Industrial Relations";st[49] = "Information Technology Management";st[50] = "Instrumentation";st[51] = "International Management";st[52] = "Journalism";st[53] = "Law";st[54] = "Literature";st[55] = "Management";st[56] = "Marine";st[57] = "Marketing";st[58] = "Material Technology";st[59] = "Materials Science";st[60] = "Mathematics";st[61] = "Mechanical";st[62] = "Medicine";st[63] = "Metallurgy";st[64] = "Microbiology";st[65] = "Mineral";st[66] = "Mining";st[67] = "Nuclear";st[68] = "Nursing";st[69] = "Ocean";st[70] = "Other";st[71] = "Other Arts";st[72] = "Other Diploma";st[73] = "Other Doctorate";st[74] = "Other Engineering";st[75] = "Other Management";st[76] = "Other Science";st[77] = "Paint/Oil";st[78] = "Petroleum";st[79] = "Pharmacy";st[80] = "Philosophy";st[81] = "Physics";st[82] = "Plastics";st[83] = "Political Science";st[84] = "PPL";st[85] = "PR/Advertising";st[86] = "Production & Operations Management";st[87] = "Production/Industrial";st[88] = "Psychology";st[89] = "Sanskrit";st[90] = "Sociology";st[91] = "Solid State Technology";st[92] = "Statistics";st[93] = "Strategy Management";st[94] = "Systems";st[95] = "Systems&Devices";st[96] = "Textile";st[97] = "Visual Arts";st[98] = "Vocational Courses";st[99] = "Zoology";st[100] = "Accounting";st[101] = "Administration";st[102] = "Arabic";st[103] = "Auditing";st[104] = "Automobile engineering";st[105] = "Banking";st[106] = "Bio-Chemistry / Bio-technology";st[107] = "Business Administration";st[108] = "Chemical engineering";st[109] = "Civil engineering";st[110] = "Computer Science";st[111] = "Construction Management";st[112] = "Electrical engineering";st[113] = "F&B";st[114] = "Industrial engineering";st[115] = "Interior Design";st[116] = "Marine engineering";st[117] = "Mechanical engineering";st[118] = "Mining/Minerals";st[119] = "MIS";st[120] = "Multimedia/Visual Arts";st[121] = "Networking";st[122] = "Physiology";st[123] = "PR/Public administration";st[124] = "Production engineering";st[125] = "Radiology";st[126] = "Refrigeration";st[127] = "Surgery";st[128] = "Tourism";st[129] = "ACCA";st[130] = "ASHRAE - Member";st[131] = "CIBSE - Member";st[132] = "CCIE";st[133] = "CCNA";st[134] = "CCNP";st[135] = "CFA";st[136] = "CIS";st[137] = "CISCO";st[138] = "CISSP";st[139] = "CIW";st[140] = "CMA";st[141] = "CPA";st[142] = "HVAC";st[143] = "MCDBA";st[144] = "MCP";st[145] = "MCSA";st[146] = "MCSD.Net";st[147] = "MCSE";st[148] = "NASD";st[149] = "PMP";st[150] = "SCNP";st[151] = "Other Certification/Professional qualification";
+function populateStream(doc,any,degreeObj,streamObj,selectStream) 
+{
+	var streamOptLen = streamObj.options.length;
+	var i = 0;
+	for(var len=0;len<streamOptLen;len++) 
+	{
+		streamObj.options[len].selected = false;
+	}
+	streamObj.options.length = 0;
+	for(var i=0; i< degreeObj.options.length; i++) 
+	{
+		var lval = degreeObj.options[i].value;
+		if(degreeObj.options[i].selected && lval.length > 0) 
+		{
+			var str  = em[lval];
+			var map  = str.split(',');
+			if(map.length >1)
+			{
+				var opt = new Option();
+				opt.value="";
+				opt.text='------Make Selection----';
+				opt.selected=true;
+				streamObj.options[streamObj.options.length] = opt;
+			}
+				
+			for(var mapi=0; mapi < map.length; mapi++) 
+			{
+				if ( map.length != 1 && st[map[mapi]] == 'Any' && any == 'NO' )
+				{
+					continue;
+				}
+				var opt = new Option();
+				opt.value=map[mapi];
+				if((opt.value == 47) && (any == 'NO')  && (lval != 7) && (lval != 8) && (lval != 10))
+				{
+				     	continue;
+				}
+				opt.text=st[map[mapi]];
+				var isSelected = false;
+				if ( selectStream == map[mapi] )
+				{
+					//opt.selected = true;
+					isSelected = true;
+				}
+				streamObj.options[streamObj.options.length] = opt;
+				if ( isSelected )
+				{
+					streamObj.options[streamObj.options.length - 1].selected = isSelected;
+				}
+			}
+		}
+	}
+}
+//--------------------------
+
+
+var loc_codes = '1:79:91;2:80:91;3:44:91;4:11:91;5:124:91;6:40:91;7:33:91;8:22:91;9:120:91;10:22:91;11:381:91;12:562:91;13:241:91;14:389:91;15:145:91;474:477:91;16:571:91;17:532:91;18:171:91;19:183:91;20:2692:91;21:2646:91;22:341:91;23:2432:91;24:641:91;25:581:91;26:7531:91;27:831:91;28:8392:91;29:2642:91;30:164:91;31:278:91;32:7792:91;33:775:91;34:674:91;35:2832:91;36:8482:91;37:7752:91;38:6542:91;40:172:91;87:484:91;41:422:91;42:671:91;43:0:91;44:0:91;45:135:91;46:326:91;47:0:91;48:0:91;49:0:91;50:343:91;52:424:91;53:5278:91;54:129:91;55:2712:91;56:3592:91;57:120:91;58:0:91;59:551:91;60:8472:91;61:863:91;62:361:91;63:751:91;64:3224:91;65:1662:91;66:4334:91;67:836:91;475:4863:91;68:385:91;69:731:91;70:360:91;71:761:91;72:141:91;73:2991:91;74:181:91;75:257:91;76:191:91;77:288:91;78:657:91;79:291:91;80:884:91;81:0:91;82:0:91;83:512:91;84:184:91;476:499:91;85:0:91;86:3222:91;88:370:91;89:8152:91;90:231:91;91:0:91;92:2958:91;93:481:91;39:495:91;94:0:91;95:8518:91;96:1744:91;97:522:91;98:161:91;99:452:91;477:483:91;100:824:91;101:565:91;102:121:91;103:0:91;104:591:91;105:821:91;106:4652:91;107:712:91;108:253:91;109:861:91;110:8462:91;111:423:91;112:491:91;113:180:91;114:6722:91;478:468:91;115:186:91;116:175:91;117:612:91;118:413:91;119:286:91;120:3192:91;121:6752:91;122:474:91;123:771:91;124:883:91;125:281:91;126:651:91;127:1262:91;128:1332:91;129:661:91;130:472:91;131:364:91;132:177:91;133:217:91;134:3842:91;135:353:91;136:0:91;480:130:91;137:194:91;138:261:91;139:4362:91;140:487:91;143:471:91;141:462:91;142:877:91;144:431:91;145:461:91;146:1594:91;147:734:91;148:265:91;149:2632:91;150:260:91;151:542:91;152:416:91;153:866:91;154:891:91;155:870:91;479:4936:91;481:1732:91;198:0:91;156:0:61;158:0:973;157:0:880;159:0:32;160:0:1;161:0:86;250:0:20;164:0:33;165:0:49;204:0:0;166:0:852;167:0:62;168:0:353;169:0:81;238:0:962;170:0:965;237:0:961;252::853;171:0:60;172:0:960;173:0:230;174:0:52;175:0:977;176:0:31;177:0:64;178:0:968;179:0:92;249:0:63;180:0:974;181:0:7;182:0:966;183:0:65;184:0:27;185:0:82;186:0:34;187:0:94;188:0:46;189:0:41;253::886;190:0:66;191:0:44;192:0:971;193:0:1;254::84;194:0:967;195:0:263;197:0:0';
+var locInfo = loc_codes.split(';');
+var stdCodeInfo = new Array();
+var isdCodeInfo = new Array();
+for(var i=0;i<locInfo.length;i++)
+{
+	var codeInfo = locInfo[i].split(':');
+	stdCodeInfo[codeInfo[0]] = codeInfo[1];
+	isdCodeInfo[codeInfo[0]] = codeInfo[2];
+}
+
+function populate_stdcode(form)
+{
+	var index       = form.form.currentloc.selectedIndex;
+	var loc         = "";
+	loc             = form.form.currentloc.options[index].value;
+
+	if(form.form.std && stdCodeInfo[loc] > 0)
+	{
+		form.form.std.value = stdCodeInfo[loc];
+	}
+	else
+	{
+		form.form.std.value = '';
+	}
+
+	if(form.form.isd && isdCodeInfo[loc] > 0)
+	{
+		form.form.isd.value = isdCodeInfo[loc];
+	}
+	else
+	{
+		form.form.isd.value = '';
+	}
+
+}
+	
+function chooseId()
+{
+if ( document.alternative_form.alternate[0].checked )
+{
+document.CREATEACCTFORM.userName.value =  document.alternative_form.alternate[0].value;
+}
+if ( document.alternative_form.alternate[1].checked )
+{
+document.CREATEACCTFORM.userName.value =  document.alternative_form.alternate[1].value;
+}
+if ( document.alternative_form.alternate[2].checked )
+{
+document.CREATEACCTFORM.userName.value =  document.alternative_form.alternate[2].value;
+}
+}
+
+function checkLocation(Obj)
+{
+var otherLocIDs = "198,197";
+var selectedValue       =  Obj.options[Obj.selectedIndex].value ;
+isErrMsg('CLOCATION');
+isErrMsg('OTHLOCATION');
+if ( (Obj.value == '') || ( otherLocIDs.match ("\\b"+selectedValue+"\\b") > 0 ))
+{
+document.getElementById('other_currentlocID').disabled = false;
+}
+else
+{
+document.getElementById('other_currentlocID').disabled = true;
+}
+}
+
+</script>
+
+<script>
+function initJS()
+{
+	loadFA('65,4,5,8,10,11,13,16,17,27,30,31,32,34,41,42,45,48,49,51,1,2,3,6,7,9,12,14,15,18,19,20,21,22,23,24,25,26,28,29,33,35,36,37,38,39,40,43,44,46,47,50,52,53,54,55',document.CREATEACCTFORM.jobCategory,1,'','-  Select-');
+	MJS.SKR.createOverlay({TAG_ID: 'forgotUserPass', OVERLAY_OPTIONS: {fixedcenter:true, visible:false,width:"566px", height: "415px"}, OPEN_ON_CLICK_IDS: ['forgotUsername', 'forgotPass'] , CLOSE_ON_CLICK_IDS: ['forgotUserPass_close_popup','forgotUserPass_close_other']});
+}
+</script>
+
+
+<script>
+function showEmail(){
+    var msg = '';
+    var email_sent = document.getElementById('ajax_flag').value;
+    var flag_sent = '';
+    var flag_email = ''
+    if(email_sent != '')
+    {
+        var arr = email_sent.split(":");
+        flag_sent = arr[0];
+        flag_email = arr[1];
+    }
+    if(document.getElementById('email').value != ''){
+        var email_value = document.getElementById('email').value;
+            var re = /^[a-zA-Z0-9_\.\-]+(\.[a-zA-Z0-9_\.\-]+)*@([a-zA-Z0-9_\.\-]+\.)+[a-zA-Z]{2,7}$/;
+
+        if(!email_value.match(re)){
+//          msg = 'Please check your email address.';
+            msg = ''
+        }
+        else{
+            // make ajax request to check for the email if exists
+            if(!(flag_sent && flag_email == document.getElementById('email').value)){
+                var response = call_ajax(email_value,"showDiv");
+            }else{
+        //      msg = 'Email '+document.getElementById('email').value+' already exists. Your password is already sent to respective email id.';
+                msg = '';
+            }
+        }
+    }
+    else if(document.getElementById('email').value == ''){
+//      msg = 'Please enter your email address.';
+        msg = '';
+    }
+    document.getElementById('email_msg').innerHTML = msg;
+
+    if(msg == ''){
+        document.getElementById('box1').style.display = 'none';
+    }
+	else{
+        document.getElementById('box1').style.display = 'block';
+    }
+
+    return false;
+}
+
+function call_ajax(email,call_back_func){
+        var xmlHTTP=false;
+    var flag=true;
+    var self=this;
+    var email_to_chk = email;
+    var email_chk_flag = "0";
+    var url="ajx_chk_email.html"+'?email='+email_to_chk;
+    self.xmlHTTP=getXMLHttpObject();
+    if(self.xmlHTTP==null) alert('No support for AJAX !!');
+    self.xmlHTTP.open("POST",url,true);
+    self.xmlHTTP.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    self.xmlHTTP.send(null);
+    self.xmlHTTP.onreadystatechange=function(){
+        if(self.xmlHTTP.readyState==4){
+            if (self.xmlHTTP.responseText == 'email exist'){
+                eval(call_back_func+"(1,email_to_chk)");
+            }
+            else if(self.xmlHTTP.responseText == 'not exist'){
+                eval(call_back_func+"(0,email_to_chk)");
+            }
+        }
+    }
+}
+
+function getXMLHttpObject(){
+    var xmlHTTP;
+    try{xmlHTTP = new XMLHttpRequest();}
+    catch(e){
+        try{xmlHTTP=new ActiveXObject("Msxml2.XMLHTTP");}
+        catch(e){xmlHTTP=new ActiveXObject("Microsoft.XMLHTTP");}
+    }
+    return xmlHTTP;
+}
+
+function showDiv(flag,value)
+{
+    if(flag){
+        document.getElementById('box1').style.display = 'block';
+        document.getElementById('email_msg').innerHTML = 'Email '+value+' already exists. Need to <a href="javascript:void(0);"  onclick="showOverlay(\'password\')" id="forgotPass">retrieve your password</a>?';
+    }
+    else{
+
+        document.getElementById('box1').style.display = 'none';
+        document.getElementById('email_msg').innerHTML = '';
+    }
+}
+
+
+function showOverlay(titleid)
+{
+    var ontop="";
+    if(titleid == "password"){
+        ontop = 'Password';
+    }
+
+    var postData =  {
+        func: 'showForgotPasswordForm',
+        req_src: 'ajax'
+    };
+
+    var email = document.getElementById('email').value;
+
+    var sURL = 'forgot_password.html?req_src=ajax&new=1&email='+email+'&func=showForgotPasswordForm';
+
+    MJS.SKR.loadPageContentInTag({ METHOD: 'POST', URL: sURL, POPUP_TITLE:  'Forgot '+ ontop ,TAG_ID: 'forgotUserPass', CACHE: 0, ON_CLOSE_POPUP_ACTIVE_BG: 1, ALERT_MSG_TAG_ID: 'errMsgOnDHTML' });
+}
+
+
+</script>
+
+
+</head>
+
+<body onload="return initJS();">
+<div id="hint_main" style="display:none; padding:10px 0px 10px 10px; position:absolute;" class="bg_grey"></div>
+
+
+<script type="text/javascript" src="http://media.monsterindia.com/v2.1/js/chrome.js"></script>
+<link rel="stylesheet" type="text/css" href="http://media.monsterindia.com/v2/js/common/seeker/css/header_css_1-min_v1.css" />
+<script src="http://media1.monsterindia.com/v2/js/common/seeker/mons.js" language="javascript" ></script>
+
+
+
+<noscript>
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+
+    <td align="center" class="bg_pink border_red" style="border-top:0px; border-right:0px; border-left:0px;"><img src="http://media2.monsterindia.com/v2.1/icon_error2_trans.gif"   width="19" height="20" align="absmiddle" /> <span class="txt_red">Javascript is disabled in your browser due to this certain functionalities will not work. <a href="http://www.monsterindia.com/enable_scripting.html"   target="_parent">Click Here</a>, to know how to enable it.</span></td>
+
+  </tr>
+</table>
+</noscript>
+
+
+<table width='971' border='0' align='center' cellpadding='0' cellspacing='0'>
+
+<tr>
+<td height="100" style="padding: 5px 10px 0px 15px;" ><table width='100%' border='0' cellspacing='0' cellpadding='0'>
+<tr>
+<td width='49%' rowspan='2'><a href="http://www.monsterindia.com/"><img src='http://media.monsterindia.com/v2.1/logo-small.gif'  border="0"/></a>
+
+</td>
+<td width='51%' align='right'><a href="http://www.monsterindia.com/tracker.html?banner_id=ada2fb4bfb11021c614c575f03c7cd11" target=_blank ><img src="http://media.monsterindia.com//banners/41336.gif" height="60" border="0"/></td></tr></table></td>
+</tr>
+</table><!-- navigation -->
+
+
+<table width='971 ' border='0' align='center' cellpadding='0' cellspacing='0'>
+
+<tr><td width='4'  valign='top' class='nav'>
+
+<div style='background:url(http://media.monsterindia.com/v2.1/icon.png) -55px top; width:4px; height:34px; background-color:#FFFFFF;'></div></td><td class='nav'><div class='chromestyle' id='chromemenu'>
+<ul><li><a href='http://www.monsterindia.com/index.html'>Home</a></li>
+<li><a href='http://jobsearch.monsterindia.com/search.html'  rel='dropmenu1'>Search Jobs</a></li><li><a href='http://my.monsterindia.com/create_account.html'>Submit Resume</a></li><li><a href='http://my.monsterindia.com/my_monster.html'  rel='dropmenu2'>My Monster</a></li><li><a href='http://content.monsterindia.com/index.html' rel='dropmenu3'   >Career Center</a></li></ul>
+<div id='dropmenu1' class='dropmenudiv'>
+<ul>
+<li><a href='http://jobsearch.monsterindia.com/search.html'>Advanced Job Search</a></li>
+<li><a href='http://jobsearch.monsterindia.com/category/index.html'>Jobs By Function</a></li>
+<li><a href='http://jobsearch.monsterindia.com/industry/index.html'>Jobs By Industry</a></li>
+<li><a href='http://company.monsterindia.com/index.html'>Jobs By Company</a></li>
+<li><a href='http://jobsearch.monsterindia.com/location/index.html'>Jobs By Location</a></li>
+<li><a href='http://mobile.monsterindia.com/index.html'>Job Search on Mobile</a></li>
+<li><a href='http://www.monsterindia.com/search_tips.html'>Search Tips</a></li>
+</ul></div>
+<div id='dropmenu2' class='dropmenudiv' style='width: 150px;'>
+<ul>
+<li><a href='http://my.monsterindia.com/my_monster.html'>My Resume</a></li>
+<li><a href='http://my.monsterindia.com/applications.html'>My Applications</a></li>
+<li><a href='http://my.monsterindia.com/manageagents.html'>Job Agent</a></li>
+<li><a href='http://my.monsterindia.com/confidentiality.html'>Privacy Plus</a></li>
+<li><a href='http://my.monsterindia.com/newsletter.html'>Newsletter</a></li>
+</ul></div>
+<div id='dropmenu3' class='dropmenudiv' style='width: 150px;'>
+<ul>
+<li class='bold txt_14'><a href='http://content.monsterindia.com/index.html'>Seeker Services</a></li>
+<li><a href='http://expressresume.monsterindia.com/index.html'>- XpressResume+</a></li>
+<li><a href='http://resumeservice.monsterindia.com/index.html'>- RightResume</a></li>
+<li><a href='http://careerbooster.monsterindia.com/index.html'>- Career Booster</a></li>
+<li><a href='http://www.monsterindia.com/resume_highlighter/index.html'>- Resume Highlighter</a></li>
+<li><a href='http://www.monsterindia.com/psychometrictest/index.html'>- Psychometric Test</a></li>
+<li><a href='http://www.monsterindia.com/career_astrology/index.html'>- Career Astrology</a></li>
+<li><a class='bold'>Career Advice</a></li>
+<li><a href='http://content.monsterindia.com/interview_center.html'>- Interview Center</a></li>
+<li><a href='http://content.monsterindia.com/lifeatwork.html'>- Life At Work</a></li>
+<li><a href='http://content.monsterindia.com/resumecenter.html'>- Resume Center</a></li>
+<li><a href='http://content.monsterindia.com/salary_center.html'>- Salary Center</a></li>
+</ul>
+</div>
+</div>
+<script type='text/javascript'>cssdropdown.startchrome('chromemenu')</script></td>
+<td width='168'><table width='100%' border='0' cellspacing='0' cellpadding='0'><tr><td width='11'><img src='http://media.monsterindia.com/v2.1/emp_lgn_lft.gif'  width='11' height='34' /></td><td align='center' class='empbtn'><span class='bold'>Employer</span> <a href='http://recruiter.monsterindia.com/'  class='txt_white'>Click here</a></td><td width='4' align='right' valign='top' class='empbtn'><div style='background:url(http://media.monsterindia.com/v2.1/icon.png) -59px top; width:4px; height:34px; background-color:#FFFFFF;'></div></td></tr></table></td>
+</tr></table>
+<table width='971' border='0' align='center' cellpadding='0' cellspacing='0'><tr><td height='4' class='bg_green'><div style='float:left; background:url(http://media.monsterindia.com/v2.1/icon.png) -47px -4px; width:4px; height:4px;'><img src='http://media.monsterindia.com/v2.1/trans.gif'  width='4' height='4' /></div><div style='float:right; background:url(http://media.monsterindia.com/v2.1/icon.png) -51px -4px; width:4px; height:4px;'><img src='http://media.monsterindia.com/v2.1/trans.gif'  width='4' height='4' /></div></td></tr></table>
+
+<script language="javascript"></script>
+<!-- top links and user name -->
+<table width="971" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+<td width="50%" height="46" style="padding:0px 0px 10px 20px;"><span class="txt_darkgrey" > <span class="td_grey">Create New My Monster Account:</span><span class="bold">  Step 1</span><span class="td_grey"> | Step 2 | Step 3 </span>  </td>
+
+<td width="50%" align="right" valign="top" style="padding:10px 23px 0px 0px;" class="txt_purple"><span class="txt_black"  style="padding: 0px 5px 0px 0px;">Hi <span class = "bold">Guest!</span></span><a href="http://my.monsterindia.com/create_account.html">Register</a>&nbsp;|&nbsp;<a href="http://www.monsterindia.com/security/security_center.html">Security</a>&nbsp;|&nbsp;<a href="http://my.monsterindia.com/login.html?.rand=1281444495">Login</a></td>
+</tr>
+</table>
+
+<table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+<td width="10"><img src="http://media.monsterindia.com/v2.1/reg_banner_1.gif"   width="10" height="121" /></td>
+<td align="right" style="background:url(http://media.monsterindia.com/v2.1/reg_banner_bg.gif) repeat-x;"><table border="0" align="center" cellpadding="5" cellspacing="0">
+<tr>
+<td width="680" align="center"><span class="txt_green txt_18">Submit resume</span> <span class="txt_25 txt_purple bold">&</span> <span class="txt_18 txt_purple">Double your chances of getting the right job</span></td>
+</tr>
+<tr>
+
+<td style="background:url(http://media.monsterindia.com/v2.1/dots.gif) repeat-x;"><table width="520" border="0" align="center" cellpadding="5" cellspacing="0">
+  <tr>
+	<td width="175" height="40" align="left" valign="top" class="txt_12 txt_darkgrey" style="border-right:#bfbfbf 1px solid;">20000+ employers searching our database</td>
+	<td width="192" height="40" align="center" valign="top" class="txt_12 txt_darkgrey"  style="border-right:#bfbfbf 1px solid;">70000+ live jobs on monster<br /></td>
+	<td width="153" height="40" align="left" valign="top" class="txt_12 txt_darkgrey" style="padding-left:20px;">monster job agents work 24X7 to find you the right job</td>
+  </tr>
+</table></td>
+
+</tr>
+</table></td>
+<td width="10" align="right"><img src="http://media.monsterindia.com/v2.1/reg_banner_2.gif"   width="10" height="121" /></td>
+</tr>
+<tr>
+    <td>&nbsp;</td>
+    <td align="center"><div style="margin: 6px 6px 6px 0px; width: 215px;" class="buttonwrapper"><a href="login.html"  class="squarebutton"><span>Already a member? Login here</span></a></div></td>
+    <td align="right">&nbsp;</td>
+  </tr>
+</table>
+
+<br>
+<br>
+<form NAME="CREATEACCTFORM" action="create_account.html"  METHOD="POST" ONSUBMIT="return onSubmitJSChks(HINT);">
+<table width="780" border="0" align="center" cellpadding="0" cellspacing="0">
+	<tr class="bg_grey">
+	  <td align="left" valign="top"><img src="http://media.monsterindia.com/v2.1/trans.gif"   width="5" height="5" style="background:url(http://media.monsterindia.com/v2.1/icon.png) no-repeat -47px top;"/></td>
+	  <td valign="top">&nbsp;</td>
+
+	  <td align="right" valign="top" ><img src="http://media.monsterindia.com/v2.1/trans.gif"   width="5" height="5" style="background:url(http://media.monsterindia.com/v2.1/icon.png) no-repeat -50px top;"/></td>
+	</tr>
+
+	<tr>
+	  <td width="5" class="bg_grey">&nbsp;</td>
+	  <td width="921" align="left" valign="top" class="bg_grey" style="padding:0px 15px 0px 15px;">
+
+		<input type="HIDDEN" name="uid" value="">
+		<input type="HIDDEN" name="ru" value="">
+		<input type="HIDDEN" name="job" value="">
+		<input type="HIDDEN" name="ajax_flag" value=""  id="ajax_flag">
+		<input type="HIDDEN" name="action" value="">
+		<input type="HIDDEN" name="from" value="">
+		<input type="hidden" name="redirect_flag" value="">
+		<input type="hidden" name="redirect_url" value="">
+		<input type="hidden" name="db_mobile" value="">
+
+	<table width="100%" border="0" cellpadding="7" cellspacing="0" class="bg_white">
+	  <tr>
+		  <td colspan="2" align="right" valign="top" class="border_green_btm bg_grey" style="padding:0px 10px 0px 0px;"><span class="txt_orange">*</span> Required fields</td>
+
+		</tr>
+			  <tr>
+				<td width="180" align="right" class="bg_green txt_white bold" nowrap>Get Started With Monster</td>
+				<td style="border-left:#4c4c4c 1px solid;">&nbsp;</td>
+			</tr>
+			  <tr>
+				<td align="right" valign="top"><span class="txt_orange">*</span> Email address:</td>
+
+				<td valign="top" style="border-left:#4c4c4c 1px solid;">
+				  <input type="text"  maxlength="255" size="30" id="email" name="email"   onFocus="hintEvent('EMAILID');" onBlur="hintEvent('EMAILID', 'HIDE');   showEmail();  " value="">
+					
+					 <div id="box1" style="display:none; width:300px; padding-left:8px; margin-left:200px; margin-top:-25px; opacity:1; filter:alpha(opacity=100);">
+			            <table border="0" align="center" cellpadding="0" cellspacing="0">
+            			<tr>
+            			<td background="http://media.monsterindia.com/v2/seeker/gboxbg.gif" width="9" valign="top" style="background-position: left bottom; padding-top:10px; background:url(http://media.monsterindia.com/v2.1/gboxbt1.gif) left top repeat-y"><span style="float:left"><img src="http://media.monsterindia.com/v2.1/gboxbt.gif"   border="0" align="absmiddle" /></span></td>	
+            			<td valign="bottom" style="padding:8px; border-left:0PX;" class="bg_lightgreen border_green">
+						<div style="float:right; padding-top:4px; background:url(http://media.monsterindia.com/v2.1/icon.png) -25px 3px no-repeat" onclick="document.getElementById('box1').style.display='none'">
+
+            			<a style="cursor:pointer;"><img src="http://media.monsterindia.com/v2.1/trans.gif"  height="8" width="10" border="0" /></a></div>
+           				<div style="float:left"><img src="http://media.monsterindia.com/v2.1/what1.gif"   border="0" align="absmiddle" /> <span class="bold">Email Address</span></div> 
+						<br />
+           				 <br />
+           				 <span id="email_msg">
+           				 </span>
+           				 </td>
+           				 </tr>
+           				 </table>
+        				</div>
+
+			
+				  <div id="EMAILID" style="width:250px; margin-left:205px; margin-top:-20px; _margin-left:20px; _margin-top:0px; position:absolute;"></div>
+					<div id="ERR_EMAIL" style="padding: 2px; width: 400px; display: none;" class="txt_red small_1"></div>
+				</td>
+			</tr>
+			  <tr>
+				<td align="right" valign="top"><span class="txt_orange">*</span> First name:</td>
+				<td valign="top" style="border-left:#4c4c4c 1px solid;">
+				  <input maxlength="50" size="30" name="firstName" type="text"   onFocus="hintEvent('FNAME');" onBlur="hintEvent('FNAME', 'HIDE');" value="">&nbsp;&nbsp;
+					<div id="FNAME" style="width:170px; margin-left:200px;  margin-top:-20px; _margin-left:5px; _margin-top:0px; position:absolute;"></div>
+					<div id="ERR_FNAME" style="padding: 2px; width: 400px; display: none;" class="txt_red small_1"></div>
+					 </td>
+			</tr>
+
+			<tr>
+				<td align="right" valign="top">Last name: </td>
+				<td valign="top" style="border-left:#4c4c4c 1px solid;">
+				<input maxlength="24" size="30" name="lastName" type="text" value="">
+				</tr>
+
+
+<tr>
+				<td align="right" valign="top"><span class="txt_orange">*</span> Desired username:</td>
+				<td valign="top" style="border-left:#4c4c4c 1px solid;"><input maxlength="255" size="30" name="userName"   onFocus="hintEvent('UNAME');"  onblur="hintEvent('UNAME', 'HIDE');" type="text" value="">
+					<div id="UNAME" style="width:250px; margin-left:205px; margin-top:-20px; _margin-left:20px; _margin-top:0px; position:absolute;"></div>
+					<div id="ERR_UNAME" style="padding: 2px; width: 400px; display: none;" class="txt_red small_1"></div>
+				</td>
+			  </tr>
+			  <tr>
+
+				<td align="right" valign="top"><span class="txt_orange">*</span> Choose a password: </td>
+				<td valign="top" style="border-left:#4c4c4c 1px solid;">
+				<input maxlength="32" size="30" onFocus="hintEvent('PASS');" onBlur="hintEvent('PASS', 'HIDE');" name="passwd" type="password" value="">
+				<div id="PASS" style="width:250px; margin-left:205px; margin-top:-20px; _margin-left:20px; _margin-top:0px; position:absolute;"></div>
+				<div id="ERR_PASS" style="padding: 2px; width: 400px; display: none;" class="txt_red small_1"></div>
+				</td>
+			</tr>
+			  <tr>
+				<td align="right" valign="top"><span class="txt_orange">*</span> Re-enter password: </td>
+				<td valign="top" style="border-left:#4c4c4c 1px solid;">
+				<input name="passwd_temp"   size="30" maxlength="32" type="password"  onFocus="hintEvent('PASS_TEMP');" onBlur="hintEvent('PASS_TEMP', 'HIDE');" value="">
+				<div id="PASS_TEMP" style="width:250px; margin-left:205px; margin-top:-20px; _margin-left:20px; _margin-top:0px; position:absolute;"></div>
+				<div id="ERR_PASS_TEMP" style="padding: 2px; width: 400px; display: none;" class="txt_red small_1"></div>
+				</td>
+
+			</tr>
+<tr>
+				<td colspan="2" align="right" valign="top" style="background:url(http://media.monsterindia.com/v2.1/dots.gif) repeat-x; padding:0px;"><img src="http://media.monsterindia.com/v2.1/trans.gif"   width="1" height="1" /></td>
+			</tr>
+			  <tr>
+				<td align="right" class="bg_green txt_white bold">Personal Details </td>
+				<td style="border-left:#4c4c4c 1px solid;">&nbsp;</td>
+			</tr>
+
+			<tr>
+				<td align="right" valign="top"><span class="txt_orange">* </span>
+				Current location: </td>
+				
+				<td style="border-left:#4c4c4c 1px solid;">
+				<table cellspacing="0" cellpadding="0" border="0" id="currentloc_border">
+				<tr><td>
+				<select class="Form_fields" onChange="checkLocation(this);populate_stdcode(this);" name="currentloc" style="width:165" onFocus="hintEvent('CLOCATION');" onBlur="hintEvent('CLOCATION', 'HIDE');"><option value=''> - Select - </option><option value='1' >Ahmedabad</option><option value='2' >Bangalore</option><option value='3' >Chennai</option><option value='4' >Delhi</option><option value='5' >Gurgaon</option><option value='6' >Hyderabad</option><option value='7' >Kolkata</option><option value='8' >Mumbai</option><option value='9' >Noida</option><option value='10' >Pune</option><option value='11' >Agartala</option><option value='12' >Agra</option><option value='13' >Ahmednagar</option><option value='14' >Aizawal</option><option value='15' >Ajmer</option><option value='474' >Alappuzha / Alleppey</option><option value='16' >Aligarh</option><option value='17' >Allahabad</option><option value='18' >Ambala</option><option value='19' >Amritsar</option><option value='20' >Anand</option><option value='21' >Ankleshwar</option><option value='22' >Asansol</option><option value='23' >Aurangabad</option><option value='24' >Bahgalpur</option><option value='25' >Bareilly</option><option value='26' >Baroda</option><option value='27' >Belgaum</option><option value='28' >Bellary</option><option value='29' >Bharuch</option><option value='30' >Bhatinda</option><option value='31' >Bhavnagar</option><option value='32' >Bhilaigarh</option><option value='33' >Bhopal</option><option value='34' >Bhubaneshwar</option><option value='35' >Bhuj</option><option value='36' >Bidar</option><option value='37' >Bilaspur</option><option value='38' >Bokaro</option><option value='40' >Chandigarh</option><option value='87' >Cochin / Kochi / Ernakulam</option><option value='41' >Coimbatore</option><option value='42' >Cuttack</option><option value='43' >Dalhousie</option><option value='44' >Daman</option><option value='45' >Dehradun</option><option value='46' >Dhanbad</option><option value='47' >Dharamsala</option><option value='48' >Dharwad</option><option value='49' >Dispur</option><option value='50' >Durgapur</option><option value='52' >Erode</option><option value='53' >Faizabad</option><option value='54' >Faridabad</option><option value='55' >Gandhinagar</option><option value='56' >Gangtok</option><option value='57' >Ghaziabad</option><option value='58' >Goa</option><option value='59' >Gorakhpur</option><option value='60' >Gulbarga</option><option value='61' >Guntur</option><option value='62' >Guwahati</option><option value='63' >Gwalior</option><option value='64' >Haldia</option><option value='65' >Hisar</option><option value='66' >Hosur</option><option value='67' >Hubli</option><option value='475' >Idukki</option><option value='68' >Imphal</option><option value='69' >Indore</option><option value='70' >Itanagar</option><option value='71' >Jabalpur</option><option value='72' >Jaipur</option><option value='73' >Jaisalmer</option><option value='74' >Jalandhar</option><option value='75' >Jalgaon</option><option value='76' >Jammu</option><option value='77' >Jamnagar</option><option value='78' >Jamshedpur</option><option value='79' >Jodhpur</option><option value='80' >Kakinada</option><option value='81' >Kandla</option><option value='82' >Kannur</option><option value='83' >Kanpur</option><option value='84' >Karnal</option><option value='476' >Kasargod</option><option value='85' >Kavaratti</option><option value='86' >Kharagpur</option><option value='88' >Kohima</option><option value='89' >Kolar</option><option value='90' >Kolhapur</option><option value='91' >Kollam</option><option value='92' >Kota</option><option value='93' >Kottayam</option><option value='39' >Kozhikode / Calicut</option><option value='94' >Kulu/Manali</option><option value='95' >Kurnool</option><option value='96' >Kurukshetra</option><option value='97' >Lucknow</option><option value='98' >Ludhiana</option><option value='99' >Madurai</option><option value='477' >Malappuram</option><option value='100' >Mangalore</option><option value='101' >Mathura</option><option value='102' >Meerut</option><option value='103' >Mohali</option><option value='104' >Moradabad</option><option value='105' >Mysore</option><option value='106' >Nagercoil</option><option value='107' >Nagpur</option><option value='108' >Nasik</option><option value='109' >Nellore</option><option value='110' >Nizamabad</option><option value='111' >Ooty</option><option value='112' >Pallakad</option><option value='113' >Panipat</option><option value='114' >Paradeep</option><option value='478' >Pathanamthitta</option><option value='115' >Pathankot</option><option value='116' >Patiala</option><option value='117' >Patna</option><option value='118' >Pondicherry</option><option value='119' >Porbandar</option><option value='120' >Port Blair</option><option value='121' >Puri</option><option value='122' >Quilon</option><option value='123' >Raipur</option><option value='124' >Rajamundry</option><option value='125' >Rajkot</option><option value='126' >Ranchi</option><option value='127' >Rohtak</option><option value='128' >Roorkee</option><option value='129' >Rourkela</option><option value='130' >Salem</option><option value='131' >Shillong</option><option value='132' >Shimla</option><option value='133' >Sholapur</option><option value='134' >Silchar</option><option value='135' >Siliguri</option><option value='136' >Silvassa</option><option value='480' >Sonipat / Sonepat</option><option value='137' >Srinagar</option><option value='138' >Surat</option><option value='139' >Thanjavur</option><option value='140' >Thrissur / Trissur</option><option value='143' >Thiruvananthapuram / Trivandrum</option><option value='141' >Tirunalveli</option><option value='142' >Tirupati</option><option value='144' >Trichy</option><option value='145' >Tuticorin</option><option value='146' >Udaipur</option><option value='147' >Ujjain</option><option value='148' >Vadodara</option><option value='149' >Valsad</option><option value='150' >Vapi</option><option value='151' >Varanasi</option><option value='152' >Vellore</option><option value='153' >Vijayawada</option><option value='154' >Visakhapatnam</option><option value='155' >Warangal</option><option value='479' >Wayanad</option><option value='481' >Yamunanagar</option><option value='198' >Other India</option><option value='156' >Australia</option><option value='158' >Bahrain</option><option value='157' >Bangladesh</option><option value='159' >Belgium</option><option value='160' >Canada</option><option value='161' >China</option><option value='250' >Egypt</option><option value='164' >France</option><option value='165' >Germany</option><option value='204' >Gulf</option><option value='166' >Hongkong</option><option value='167' >Indonesia</option><option value='168' >Ireland</option><option value='169' >Japan</option><option value='238' >Jordan</option><option value='170' >Kuwait</option><option value='237' >Lebanon</option><option value='252' >Macau</option><option value='171' >Malaysia</option><option value='172' >Maldives</option><option value='173' >Mauritius</option><option value='174' >Mexico</option><option value='175' >Nepal</option><option value='176' >Netherlands</option><option value='177' >New Zealand</option><option value='178' >Oman</option><option value='179' >Pakistan</option><option value='249' >Philippines</option><option value='180' >Qatar</option><option value='181' >Russia</option><option value='182' >Saudi Arabia</option><option value='183' >Singapore</option><option value='184' >South Africa</option><option value='185' >South Korea</option><option value='186' >Spain</option><option value='187' >SriLanka</option><option value='188' >Sweden</option><option value='189' >Switzerland</option><option value='253' >Taiwan</option><option value='190' >Thailand</option><option value='191' >UK</option><option value='192' >United Arab Emirates</option><option value='193' >US</option><option value='254' >Vietnam</option><option value='194' >Yemen</option><option value='195' >Zimbabwe</option><option value='197' >Other International</option></select>	</td></tr>
+				</table>
+
+					<div id="CLOCATION" style="width:250px; margin-left:205px; margin-top:-20px; _margin-left:180px; _margin-top:-20px; position:absolute;"></div>
+					<div id="ERR_CURLOC" style="padding: 2px; width: 400px; display: none;" class="txt_red small_1"></div>
+				  <br>
+					<input maxlength="255" size="30" id="other_currentlocID" name="other_currentloc"  onFocus="hintEvent('OTHLOCATION');" onBlur="hintEvent('OTHLOCATION', 'HIDE');" value="">
+					<div id="OTHLOCATION" style="width:250px; margin-left:205px; margin-top:-20px; _margin-left:180px; _margin-top:-20px; position:absolute;"></div>
+					<div id="ERR_OTH_CURLOC" style="padding: 2px; width: 400px; display: none;" class="txt_red small_1"></div>
+					  </td>
+			</tr>
+
+
+			<tr>
+			  <td align="right">
+			   <table border="0" cellspacing="0" cellpadding="7">
+			     <tr>
+                   <td align="right" valign="top" nowrap style="padding-right:0px;">
+				    Mobile number: </td>
+				    </td>
+                 </tr>
+				 <tr>
+                   <td align="right" style="padding-right:0px;">Phone number: </td>
+				 </tr>
+			  </table>
+			 </td>
+			 <td style="border-left:#4c4c4c 1px solid;">
+                <table border="0" cellspacing="0" cellpadding="3" id="phone_border">
+                 <tr>
+                   <td style="padding-left:0px;">
+					<input maxlength="24" size="30" id="mobile2" name="mobile" type="text" value="91-"  onFocus="hintEvent('MOBILE_NO');" onBlur="hintEvent('MOBILE_NO', 'HIDE');">
+					<div id="MOBILE_NO" style="width:250px; margin-left:205px; margin-top:-20px; _margin-left:20px; _margin-top:0px; position:absolute;"></div>
+				 </td>
+			    </tr>
+
+			   <tr>
+				<td style="padding-left:0px;">
+				  <input maxlength="24" size="4" id="isd"  value="91"  name="isd" type="text"   onFocus="hintEvent('ISD_CODE');" onBlur="hintEvent('ISD_CODE', 'HIDE');">
+				<div id="ISD_CODE" style="width:250px; margin-left:205px; margin-top:-20px; _margin-left:160px; _margin-top:0px; position:absolute;"></div>
+				  -
+				  <input maxlength="24" size="4" id="std" name="std" type="text"   onFocus="hintEvent('STD_CODE');" onBlur="hintEvent('STD_CODE', 'HIDE');" value="">
+				<div id="STD_CODE" style="width:250px; margin-left:205px; margin-top:-20px; _margin-left:110px; _margin-top:0px; position:absolute;"></div>
+				  -
+				  <input maxlength="24" size="12" id="phone" name="phone" type="text"   onFocus="hintEvent('PHONE_NO');" onBlur="hintEvent('PHONE_NO', 'HIDE');" value="">
+				<div id="PHONE_NO" style="width:250px; margin-left:205px; margin-top:-20px; _margin-left:5px; _margin-top:0px; position:absolute;"></div>
+			    </td>
+			 </tr>
+			</table>
+		    	<div id="ERR_PHONE" style="padding: 2px; width: 400px; display: none;" class="txt_red small_1"></div>
+			</td>
+			</tr>
+
+			   <tr>
+				<td align="right" valign="top"> Preferred job location: </td>
+
+				<td style="border-left:#4c4c4c 1px solid;">
+				<select multiple size='4' class="Form_fields" name='pref_location' onblur="hintEvent('PLOCATION', 'HIDE');" onfocus="hintEvent('PLOCATION');"><option value=''> - Select - </option><option value='196' >Anywhere</option><option value='1' >Ahmedabad</option><option value='2' >Bangalore</option><option value='3' >Chennai</option><option value='4' >Delhi</option><option value='199' >Delhi Region</option><option value='5' >Gurgaon</option><option value='6' >Hyderabad</option><option value='7' >Kolkata</option><option value='8' >Mumbai</option><option value='9' >Noida</option><option value='10' >Pune</option><option value='11' >Agartala</option><option value='12' >Agra</option><option value='13' >Ahmednagar</option><option value='14' >Aizawal</option><option value='15' >Ajmer</option><option value='474' >Alappuzha / Alleppey</option><option value='16' >Aligarh</option><option value='17' >Allahabad</option><option value='18' >Ambala</option><option value='19' >Amritsar</option><option value='20' >Anand</option><option value='21' >Ankleshwar</option><option value='22' >Asansol</option><option value='23' >Aurangabad</option><option value='24' >Bahgalpur</option><option value='25' >Bareilly</option><option value='26' >Baroda</option><option value='27' >Belgaum</option><option value='28' >Bellary</option><option value='29' >Bharuch</option><option value='30' >Bhatinda</option><option value='31' >Bhavnagar</option><option value='32' >Bhilaigarh</option><option value='33' >Bhopal</option><option value='34' >Bhubaneshwar</option><option value='35' >Bhuj</option><option value='36' >Bidar</option><option value='37' >Bilaspur</option><option value='38' >Bokaro</option><option value='40' >Chandigarh</option><option value='87' >Cochin / Kochi / Ernakulam</option><option value='41' >Coimbatore</option><option value='42' >Cuttack</option><option value='43' >Dalhousie</option><option value='44' >Daman</option><option value='45' >Dehradun</option><option value='46' >Dhanbad</option><option value='47' >Dharamsala</option><option value='48' >Dharwad</option><option value='49' >Dispur</option><option value='50' >Durgapur</option><option value='52' >Erode</option><option value='53' >Faizabad</option><option value='54' >Faridabad</option><option value='55' >Gandhinagar</option><option value='56' >Gangtok</option><option value='57' >Ghaziabad</option><option value='58' >Goa</option><option value='59' >Gorakhpur</option><option value='60' >Gulbarga</option><option value='61' >Guntur</option><option value='62' >Guwahati</option><option value='63' >Gwalior</option><option value='64' >Haldia</option><option value='65' >Hisar</option><option value='66' >Hosur</option><option value='67' >Hubli</option><option value='475' >Idukki</option><option value='68' >Imphal</option><option value='69' >Indore</option><option value='70' >Itanagar</option><option value='71' >Jabalpur</option><option value='72' >Jaipur</option><option value='73' >Jaisalmer</option><option value='74' >Jalandhar</option><option value='75' >Jalgaon</option><option value='76' >Jammu</option><option value='77' >Jamnagar</option><option value='78' >Jamshedpur</option><option value='79' >Jodhpur</option><option value='80' >Kakinada</option><option value='81' >Kandla</option><option value='82' >Kannur</option><option value='83' >Kanpur</option><option value='84' >Karnal</option><option value='476' >Kasargod</option><option value='85' >Kavaratti</option><option value='86' >Kharagpur</option><option value='88' >Kohima</option><option value='89' >Kolar</option><option value='90' >Kolhapur</option><option value='91' >Kollam</option><option value='92' >Kota</option><option value='93' >Kottayam</option><option value='39' >Kozhikode / Calicut</option><option value='94' >Kulu/Manali</option><option value='95' >Kurnool</option><option value='96' >Kurukshetra</option><option value='97' >Lucknow</option><option value='98' >Ludhiana</option><option value='99' >Madurai</option><option value='477' >Malappuram</option><option value='100' >Mangalore</option><option value='101' >Mathura</option><option value='102' >Meerut</option><option value='103' >Mohali</option><option value='104' >Moradabad</option><option value='105' >Mysore</option><option value='106' >Nagercoil</option><option value='107' >Nagpur</option><option value='108' >Nasik</option><option value='109' >Nellore</option><option value='110' >Nizamabad</option><option value='111' >Ooty</option><option value='112' >Pallakad</option><option value='113' >Panipat</option><option value='114' >Paradeep</option><option value='478' >Pathanamthitta</option><option value='115' >Pathankot</option><option value='116' >Patiala</option><option value='117' >Patna</option><option value='118' >Pondicherry</option><option value='119' >Porbandar</option><option value='120' >Port Blair</option><option value='121' >Puri</option><option value='122' >Quilon</option><option value='123' >Raipur</option><option value='124' >Rajamundry</option><option value='125' >Rajkot</option><option value='126' >Ranchi</option><option value='127' >Rohtak</option><option value='128' >Roorkee</option><option value='129' >Rourkela</option><option value='130' >Salem</option><option value='131' >Shillong</option><option value='132' >Shimla</option><option value='133' >Sholapur</option><option value='134' >Silchar</option><option value='135' >Siliguri</option><option value='136' >Silvassa</option><option value='480' >Sonipat / Sonepat</option><option value='137' >Srinagar</option><option value='138' >Surat</option><option value='139' >Thanjavur</option><option value='140' >Thrissur / Trissur</option><option value='143' >Thiruvananthapuram / Trivandrum</option><option value='141' >Tirunalveli</option><option value='142' >Tirupati</option><option value='144' >Trichy</option><option value='145' >Tuticorin</option><option value='146' >Udaipur</option><option value='147' >Ujjain</option><option value='148' >Vadodara</option><option value='149' >Valsad</option><option value='150' >Vapi</option><option value='151' >Varanasi</option><option value='152' >Vellore</option><option value='153' >Vijayawada</option><option value='154' >Visakhapatnam</option><option value='155' >Warangal</option><option value='479' >Wayanad</option><option value='481' >Yamunanagar</option><option value='198' >Other India</option><option value='156' >Australia</option><option value='158' >Bahrain</option><option value='157' >Bangladesh</option><option value='159' >Belgium</option><option value='160' >Canada</option><option value='161' >China</option><option value='250' >Egypt</option><option value='164' >France</option><option value='165' >Germany</option><option value='204' >Gulf</option><option value='166' >Hongkong</option><option value='167' >Indonesia</option><option value='168' >Ireland</option><option value='169' >Japan</option><option value='238' >Jordan</option><option value='170' >Kuwait</option><option value='237' >Lebanon</option><option value='252' >Macau</option><option value='171' >Malaysia</option><option value='172' >Maldives</option><option value='173' >Mauritius</option><option value='174' >Mexico</option><option value='175' >Nepal</option><option value='176' >Netherlands</option><option value='177' >New Zealand</option><option value='178' >Oman</option><option value='179' >Pakistan</option><option value='249' >Philippines</option><option value='180' >Qatar</option><option value='181' >Russia</option><option value='182' >Saudi Arabia</option><option value='183' >Singapore</option><option value='184' >South Africa</option><option value='185' >South Korea</option><option value='186' >Spain</option><option value='187' >SriLanka</option><option value='188' >Sweden</option><option value='189' >Switzerland</option><option value='253' >Taiwan</option><option value='190' >Thailand</option><option value='191' >UK</option><option value='192' >United Arab Emirates</option><option value='193' >US</option><option value='254' >Vietnam</option><option value='194' >Yemen</option><option value='195' >Zimbabwe</option><option value='197' >Other International</option></select>	<div id="PLOCATION" style="width:250px; margin-left:250px; margin-top:-60px; _margin-left:20px; _margin-top:0px; position:absolute;"></div>                          </td>
+			</tr>
+			  <tr>
+				<td align="right"><span class="txt_orange">*</span> Nationality:</td>
+				<td style="border-left:#4c4c4c 1px solid;">
+				<table cellspacing="0" cellpadding="0" border="0" id="nationality_border">
+				<tr><td>
+				<select class="Form_fields" name="nationality" onFocus="hintEvent('CUR_NATIONALITY');" onBlur="hintEvent('CUR_NATIONALITY', 'HIDE');" ><option value=''> - Select - </option><option value='AF' >Afghanistan</option><option value='AL' >Albania</option><option value='DZ' >Algeria</option><option value='AS' >American Samoa</option><option value='AD' >Andorra</option><option value='AO' >Angola</option><option value='AI' >Anguilla</option><option value='AQ' >Antarctica</option><option value='AG' >Antigua and Barbuda</option><option value='AR' >Argentina</option><option value='AM' >Armenia</option><option value='AW' >Aruba</option><option value='AU' >Australia</option><option value='AT' >Austria</option><option value='AZ' >Azerbaijan</option><option value='BS' >Bahamas</option><option value='BH' >Bahrain</option><option value='BD' >Bangladesh</option><option value='BB' >Barbados</option><option value='BY' >Belarus</option><option value='BE' >Belgium</option><option value='BZ' >Belize</option><option value='BJ' >Benin</option><option value='BM' >Bermuda</option><option value='BT' >Bhutan</option><option value='BO' >Bolivia</option><option value='BA' >Bosnia and Herzegovina</option><option value='BW' >Botswana</option><option value='BV' >Bouvet Island</option><option value='BR' >Brazil</option><option value='IO' >British Indian Ocean Territory</option><option value='BN' >Brunei Darussalam</option><option value='BG' >Bulgaria</option><option value='BF' >Burkina Faso</option><option value='BI' >Burundi</option><option value='KH' >Cambodia</option><option value='CM' >Cameroon</option><option value='CA' >Canada</option><option value='CV' >Cape Verde</option><option value='KY' >Cayman Islands</option><option value='CF' >Central African Republic</option><option value='TD' >Chad</option><option value='CL' >Chile</option><option value='CN' >China</option><option value='CX' >Christmas Island</option><option value='CC' >Cocos (Keeling) Islands</option><option value='CO' >Colombia</option><option value='KM' >Comoros</option><option value='CG' >Congo</option><option value='CD' >Congo, the Democratic Republic of the</option><option value='CK' >Cook Islands</option><option value='CR' >Costa Rica</option><option value='CI' >Cote D'Ivoire</option><option value='HR' >Croatia</option><option value='CU' >Cuba</option><option value='CY' >Cyprus</option><option value='CZ' >Czech Republic</option><option value='DK' >Denmark</option><option value='DJ' >Djibouti</option><option value='DM' >Dominica</option><option value='DO' >Dominican Republic</option><option value='EC' >Ecuador</option><option value='EG' >Egypt</option><option value='SV' >El Salvador</option><option value='GQ' >Equatorial Guinea</option><option value='ER' >Eritrea</option><option value='EE' >Estonia</option><option value='ET' >Ethiopia</option><option value='FK' >Falkland Islands (Malvinas)</option><option value='FO' >Faroe Islands</option><option value='FJ' >Fiji</option><option value='FI' >Finland</option><option value='FR' >France</option><option value='GF' >French Guiana</option><option value='PF' >French Polynesia</option><option value='TF' >French Southern Territories</option><option value='GA' >Gabon</option><option value='GM' >Gambia</option><option value='GE' >Georgia</option><option value='DE' >Germany</option><option value='GH' >Ghana</option><option value='GI' >Gibraltar</option><option value='GR' >Greece</option><option value='GL' >Greenland</option><option value='GD' >Grenada</option><option value='GP' >Guadeloupe</option><option value='GU' >Guam</option><option value='GT' >Guatemala</option><option value='GN' >Guinea</option><option value='GW' >Guinea-Bissau</option><option value='GY' >Guyana</option><option value='HT' >Haiti</option><option value='HM' >Heard Island and Mcdonald Islands</option><option value='VA' >Holy See (Vatican City State)</option><option value='HN' >Honduras</option><option value='HK' >Hong Kong</option><option value='HU' >Hungary</option><option value='IS' >Iceland</option><option value='IN' >India</option><option value='ID' >Indonesia</option><option value='IR' >Iran, Islamic Republic of</option><option value='IQ' >Iraq</option><option value='IE' >Ireland</option><option value='IL' >Israel</option><option value='IT' >Italy</option><option value='JM' >Jamaica</option><option value='JP' >Japan</option><option value='JO' >Jordan</option><option value='KZ' >Kazakhstan</option><option value='KE' >Kenya</option><option value='KI' >Kiribati</option><option value='KP' >Korea, Democratic People's Republic of</option><option value='KR' >Korea, Republic of</option><option value='KW' >Kuwait</option><option value='KG' >Kyrgyzstan</option><option value='LA' >Lao People's Democratic Republic</option><option value='LV' >Latvia</option><option value='LB' >Lebanon</option><option value='LS' >Lesotho</option><option value='LR' >Liberia</option><option value='LY' >Libyan Arab Jamahiriya</option><option value='LI' >Liechtenstein</option><option value='LT' >Lithuania</option><option value='LU' >Luxembourg</option><option value='MO' >Macao</option><option value='MK' >Macedonia, the Former Yugoslav Republic of</option><option value='MG' >Madagascar</option><option value='MW' >Malawi</option><option value='MY' >Malaysia</option><option value='MV' >Maldives</option><option value='ML' >Mali</option><option value='MT' >Malta</option><option value='MH' >Marshall Islands</option><option value='MQ' >Martinique</option><option value='MR' >Mauritania</option><option value='MU' >Mauritius</option><option value='YT' >Mayotte</option><option value='MX' >Mexico</option><option value='FM' >Micronesia, Federated States of</option><option value='MD' >Moldova, Republic of</option><option value='MC' >Monaco</option><option value='MN' >Mongolia</option><option value='MS' >Montserrat</option><option value='MA' >Morocco</option><option value='MZ' >Mozambique</option><option value='MM' >Myanmar</option><option value='NA' >Namibia</option><option value='NR' >Nauru</option><option value='NP' >Nepal</option><option value='NL' >Netherlands</option><option value='AN' >Netherlands Antilles</option><option value='NC' >New Caledonia</option><option value='NZ' >New Zealand</option><option value='NI' >Nicaragua</option><option value='NE' >Niger</option><option value='NG' >Nigeria</option><option value='NU' >Niue</option><option value='NF' >Norfolk Island</option><option value='MP' >Northern Mariana Islands</option><option value='NO' >Norway</option><option value='OM' >Oman</option><option value='PK' >Pakistan</option><option value='PW' >Palau</option><option value='PS' >Palestinian Territory, Occupied</option><option value='PA' >Panama</option><option value='PG' >Papua New Guinea</option><option value='PY' >Paraguay</option><option value='PE' >Peru</option><option value='PH' >Philippines</option><option value='PN' >Pitcairn</option><option value='PL' >Poland</option><option value='PT' >Portugal</option><option value='PR' >Puerto Rico</option><option value='QA' >Qatar</option><option value='RE' >Reunion</option><option value='RO' >Romania</option><option value='RU' >Russian Federation</option><option value='RW' >Rwanda</option><option value='SH' >Saint Helena</option><option value='KN' >Saint Kitts and Nevis</option><option value='LC' >Saint Lucia</option><option value='PM' >Saint Pierre and Miquelon</option><option value='VC' >Saint Vincent and the Grenadines</option><option value='WS' >Samoa</option><option value='SM' >San Marino</option><option value='ST' >Sao Tome and Principe</option><option value='SA' >Saudi Arabia</option><option value='SN' >Senegal</option><option value='CS' >Serbia and Montenegro</option><option value='SC' >Seychelles</option><option value='SL' >Sierra Leone</option><option value='SG' >Singapore</option><option value='SK' >Slovakia</option><option value='SI' >Slovenia</option><option value='SB' >Solomon Islands</option><option value='SO' >Somalia</option><option value='ZA' >South Africa</option><option value='GS' >South Georgia and the South Sandwich Islands</option><option value='ES' >Spain</option><option value='LK' >Sri Lanka</option><option value='SD' >Sudan</option><option value='SR' >Suriname</option><option value='SJ' >Svalbard and Jan Mayen</option><option value='SZ' >Swaziland</option><option value='SE' >Sweden</option><option value='CH' >Switzerland</option><option value='SY' >Syrian Arab Republic</option><option value='TW' >Taiwan</option><option value='TJ' >Tajikistan</option><option value='TZ' >Tanzania, United Republic of</option><option value='TH' >Thailand</option><option value='TL' >Timor-Leste</option><option value='TG' >Togo</option><option value='TK' >Tokelau</option><option value='TO' >Tonga</option><option value='TT' >Trinidad and Tobago</option><option value='TN' >Tunisia</option><option value='TR' >Turkey</option><option value='TM' >Turkmenistan</option><option value='TC' >Turks and Caicos Islands</option><option value='TV' >Tuvalu</option><option value='UG' >Uganda</option><option value='UA' >Ukraine</option><option value='AE' >United Arab Emirates</option><option value='GB' >United Kingdom</option><option value='US' >United States</option><option value='UM' >United States Minor Outlying Islands</option><option value='UY' >Uruguay</option><option value='UZ' >Uzbekistan</option><option value='VU' >Vanuatu</option><option value='VE' >Venezuela</option><option value='VN' >Viet Nam</option><option value='VG' >Virgin Islands, British</option><option value='VI' >Virgin Islands, U.s.</option><option value='WF' >Wallis and Futuna</option><option value='EH' >Western Sahara</option><option value='YE' >Yemen</option><option value='ZM' >Zambia</option><option value='ZW' >Zimbabwe</option></select>	</td></tr>
+				</table>
+				<div id="CUR_NATIONALITY" style="width:250px; margin-left:250px; margin-top:-60px; _margin-left:20px; _margin-top:0px; position:absolute;"></div>
+				<div id="ERR_NATIONALITY" style="padding: 2px; width: 400px; display: none;" class="txt_red small_1"></div>
+				 </td>
+
+			</tr>
+			  <tr>
+				<td align="right"><span class="txt_orange">*</span> Gender:</td>
+				<td style="border-left:#4c4c4c 1px solid;">
+				<table cellspacing="0" cellpadding="0" border="0" id="gender_border">
+				<tr><td>
+				 <input name="gender" type="radio" value="m"  onFocus="hintEvent('GENDER1');" onBlur="hintEvent('GENDER1', 'HIDE');">
+				  Male&nbsp;&nbsp;&nbsp;
+				  <input name="gender" type="radio" value="f"  onFocus="hintEvent('GENDER1');" onBlur="hintEvent('GENDER1', 'HIDE');">
+
+				  Female </td>
+				</tr>
+				</table>
+				<div id="GENDER1" style="width:250px; margin-left:250px; margin-top:-60px; _margin-left:20px; _margin-top:0px; position:absolute;"></div>
+				<div id="ERR_GENDER1" style="padding: 2px; width: 400px; display: none;" class="txt_red small_1"></div>
+
+				</td>
+			 </tr>
+			  <tr>
+				<td colspan="2" align="right" valign="top" style="background:url(http://media.monsterindia.com/v2.1/dots.gif) repeat-x; padding:0px;"><img src="http://media.monsterindia.com/v2.1/trans.gif"   width="1" height="1" /></td>
+			</tr><tr>
+				  <td align="right" class="bg_green txt_white bold">Professional Details </td>
+				  <td style="border-left:#4c4c4c 1px solid;">&nbsp;</td>
+				  </tr>
+
+			  <tr>
+				<td align="right"><span class="txt_orange">*</span> Total experience:</td>
+				<td style="border-left:#4c4c4c 1px solid;">
+				<table cellspacing="0" cellpadding="0" border="0" id="exp_in_months_border">
+				<tr><td>
+				  <select name="exp_in_years"  class="Form_fields">
+					<option value="">- Select -</option>
+					<option value="0">0</option>
+					 <option value="1">1</option>
+					 <option value="2">2</option>
+					 <option value="3">3</option>
+					 <option value="4">4</option>
+					 <option value="5">5</option>
+					 <option value="6">6</option>
+					 <option value="7">7</option>
+					 <option value="8">8</option>
+					 <option value="9">9</option>
+					 <option value="10">10</option>
+					 <option value="11">11</option>
+					 <option value="12">12</option>
+					 <option value="13">13</option>
+					 <option value="14">14</option>
+					 <option value="15">15</option>
+					 <option value="16">16</option>
+					 <option value="17">17</option>
+					 <option value="18">18</option>
+					 <option value="19">19</option>
+					 <option value="20">20</option>
+					 <option value="21">21</option>
+					 <option value="22">22</option>
+					 <option value="23">23</option>
+					 <option value="24">24</option>
+					 <option value="25">25</option>
+					 <option value="26">26</option>
+					 <option value="27">27</option>
+					 <option value="28">28</option>
+					 <option value="29">29</option>
+					 <option value="30">30</option>
+					 <option value="31">31</option>
+					 <option value="32">32</option>
+					 <option value="33">33</option>
+					 <option value="34">34</option>
+					 <option value="35">35</option>
+					 <option value="36">36</option>
+					 <option value="37">37</option>
+					 <option value="38">38</option>
+					 <option value="39">39</option>
+					 <option value="40">40</option>
+					 <option value="41">41</option>
+					 <option value="42">42</option>
+					 <option value="43">43</option>
+					 <option value="44">44</option>
+					 <option value="45">45</option>
+					 <option value="46">46</option>
+					 <option value="47">47</option>
+					 <option value="48">48</option>
+					 <option value="49">49</option>
+					 <option value="50">50</option>
+					 </select>&nbsp;Years	<select name="exp_in_months"  class="Form_fields" onFocus="hintEvent('WORK_EXP');" onBlur="hintEvent('WORK_EXP', 'HIDE');">
+					<option value="">- Select -</option>
+					<option value="00">0</option>
+					<option value="01">1</option>
+					<option value="02">2</option>
+					<option value="03">3</option>
+					<option value="04">4</option>
+					<option value="05">5</option>
+					<option value="06">6</option>
+					<option value="07">7</option>
+					<option value="08">8</option>
+					<option value="09">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					</select>&nbsp;Months	</td></tr>
+				</table>
+
+				<div id="WORK_EXP" style="width:250px; margin-left:250px; margin-top:-60px; _margin-left:20px; _margin-top:0px; position:absolute;"></div>
+				<div id="ERR_WORK_EXP" style="padding: 2px; width: 400px; display: none;" class="txt_red small_1"></div>
+			</td>
+			</tr>
+
+			<tr>
+<td align="right" valign="top"><span class="txt_orange">* </span>Current / Preferred industry:</td>
+<td valign="top" style="border-left:#4c4c4c 1px solid;">
+	<table cellspacing="0" cellpadding="0" border="0" id="industry_border">
+	 <tr><td>
+			<select name="industry" size="8" id="industry" onchange="loadFA(this,document.CREATEACCTFORM.jobCategory,0);" onFocus="hintEvent('CUR_INDUSTRY');" onBlur="hintEvent('CUR_INDUSTRY', 'HIDE');" multiple="multiple"><option value=''> - Select - </option><option value='65' >Any</option><option value='4' >Automotive/ Ancillaries</option><option value='5' >Banking/ Financial Services</option><option value='8' >Bio Technology & Life Sciences</option><option value='10' >Chemicals/ Plastic/ Rubber</option><option value='11' >Construction</option><option value='13' >Consumer Goods/ FMCG</option><option value='16' >Education</option><option value='17' >Entertainment/ Media/ Publishing</option><option value='27' >Insurance</option><option value='30' >ITES/ BPO/ KPO</option><option value='31' >IT/ Computers - Hardware</option><option value='32' >IT/ Computers - Software</option><option value='34' >Machinery/ Equipment Mfg.</option><option value='41' >Oil/ Gas/ Petroleum</option><option value='42' >Pharmaceuticals</option><option value='45' >Power</option><option value='48' >Real Estate</option><option value='49' >Retailing</option><option value='51' >Telecom</option><option value='1' >Advertising</option><option value='2' >Agriculture/ Dairy Based</option><option value='3' >Airlines</option><option value='6' >Beauty/Fitness/PersonalCare/SPA</option><option value='7' >Beverages/ Liquor</option><option value='9' >Cement</option><option value='12' >Consultancy</option><option value='14' >Courier/ Freight/ Transportation</option><option value='15' >Dotcom</option><option value='18' >Fertilizer/ Pesticides</option><option value='19' >Food & Packaged Food</option><option value='20' >Garments/ Textiles</option><option value='21' >Gems & Jewellery</option><option value='22' >Government/ PSU/ Defence</option><option value='23' >Home Appliances (TV, Fridge, AC etc.)</option><option value='24' >Hospitals/ Health Care</option><option value='25' >Hotels/ Restaurant</option><option value='26' >Import / Export</option><option value='28' >Iron/ Steel</option><option value='29' >ISP</option><option value='33' >Leather</option><option value='35' >Market Research</option><option value='36' >Medical Transcription</option><option value='37' >Mining</option><option value='38' >NGO</option><option value='39' >Non-Ferrous Metals (Aluminium, Zinc etc.)</option><option value='40' >Office Equipment</option><option value='43' >Paints</option><option value='44' >Paper</option><option value='46' >Printing/ Packaging</option><option value='47' >Public Relations (PR)</option><option value='50' >Shipping</option><option value='52' >Travel/ Tourism</option><option value='53' >Tyres</option><option value='54' >Wood</option><option value='55' >Other</option></select>	</td></tr>
+            </table>
+
+          <div id="CUR_INDUSTRY" style="width:250px; margin-left:285px; margin-top:-50px; _margin-left:275px; _margin-top:-60px; position:absolute;"></div>
+			<div id="ERR_INDUS" style="padding: 2px; width: 400px; display: none;" class="txt_red small_1"></div>
+			</td>
+      </tr>
+
+						
+                      <tr>
+                        <td align="right" valign="top"><span class="txt_orange">*</span> Function: </td>
+
+                        <td style="border-left:#4c4c4c 1px solid;">
+						<table cellspacing="0" cellpadding="0" border="0" id="jobCategory_border">
+                        <tr><td>
+						<select name="jobCategory"  size="12" multiple="multiple" id="id_jobCategory" onblur="hintEvent('CATEGORY', 'HIDE');" onfocus="hintEvent('CATEGORY');" style="width:265px">
+        				</select>
+						</td></tr>
+                        </table>
+						<div id="CATEGORY" style="width:250px; margin-left:290px; margin-top:-55px; _margin-left:270px; _margin-top:-60px; position:absolute;"></div>
+						<div id="ERR_JOBCAT" style="padding: 2px; width: 400px; display: none;" class="txt_red small_1"></div>
+                          </td>
+                    </tr>
+                      <tr>
+                        <td align="right"> Key skills: </td>
+
+                        <td style="border-left:#4c4c4c 1px solid;">
+                          <input maxlength="100" size="35" id="keySkills" name="keySkills" type="text"   onFocus="hintEvent('SKILLS');" onBlur="hintEvent('SKILLS', 'HIDE');" value="">
+						<div id="SKILLS" style="width:330px; margin-left:240px; margin-top:-20px; _margin-left:20px; _margin-top:0px; position:absolute;"></div>
+						<div id="ERR_KEYSKILL" style="padding: 2px; width: 400px; display: none;" class="txt_red small_1"></div>
+                          </td>
+                    </tr>
+
+<tr>
+                        <td colspan="2" align="right" valign="top" style="background:url(http://media.monsterindia.com/v2.1/dots.gif) repeat-x; padding:0px;"><img src="http://media.monsterindia.com/v2.1/trans.gif"   width="1" height="1" /></td>
+                    </tr>
+					<tr>
+                          <td align="right" class="bg_green txt_white bold">Email Subscription</td>
+
+                          <td style="border-left:#4c4c4c 1px solid;"><span class="bold" style="padding-right:15px;">Emails you would like to receive</span></td>
+                          </tr>
+                      <tr>
+                        <td align="right">&nbsp;</td>
+
+                        <td style="border-left:#4c4c4c 1px solid;">
+                          <table width="350" border="0" cellpadding="0" cellspacing="0">
+
+
+						<tr> <td  width="2%" height="30"><span class="border_grey2" style="border-bottom:0px; border-right:0px; border-top:0px; padding-left:12px;"><input name="opt_ins" value="1" type="checkbox" checked></span></td><td height="30" style="padding-left:6px;">Monster products & newsletters</td> </tr><tr> <td  width="2%" height="30"><span class="border_grey2" style="border-bottom:0px; border-right:0px; border-top:0px; padding-left:12px;"><input name="opt_ins" value="2" type="checkbox" checked></span></td><td height="30" style="padding-left:6px;">Offers & Promotions from leading companies</td> </tr> </table>
+					    </td>
+                    </tr>
+	<tr>
+                        <td colspan="2" align="right" valign="top" style="background:url(http://media.monsterindia.com/v2.1/dots.gif) repeat-x; padding:0px;"><img src="http://media.monsterindia.com/v2.1/trans.gif"   width="1" height="1" /></td>
+                    </tr>
+
+						<tr>
+                <td valign="bottom" class="bg_grey" >&nbsp;</td>
+                <td height="40" valign="bottom" style="border-left:#4c4c4c 1px solid; padding-left:6px;" class="bg_grey"><span class="button"><span>
+				<input type="submit" name="submit1"  ID="continue" value="Submit"></span></span>
+				</td>
+			  </tr>
+
+			  <tr>
+				<td valign="bottom" class="bg_grey" >&nbsp;</td>
+				<td valign="bottom" style="border-left:#4c4c4c 1px solid; padding-left:6px;" class="bg_grey">&nbsp;</td>
+			  </tr>
+			  </table>              </td>
+	  <td width="5" class="bg_grey">&nbsp;</td>
+	</tr>
+	<tr class="bg_grey">
+
+	  <td align="left" valign="bottom"><img src="http://media.monsterindia.com/v2.1/trans.gif"   width="5" height="5" style="background:url(http://media.monsterindia.com/v2.1/icon.png) no-repeat -47px -3px;"/></td>
+	  <td>&nbsp;</td>
+	  <td align="right" valign="bottom"><img src="http://media.monsterindia.com/v2.1/trans.gif"   width="5" height="5" style="background:url(http://media.monsterindia.com/v2.1/icon.png) no-repeat -50px -3px;"/></td>
+	</tr>
+</table>
+</form>
+<br><br>
+
+<table width='728' border='0' align='center' cellpadding='0' cellspacing='0'>
+<!-- Body ends --><!-- footer -->
+<table width='971' border='0' align='center' cellpadding='0' cellspacing='0'>
+<tr>
+	<td class='footer'><table width='100%' border='0' cellspacing='0' cellpadding='0'>
+<tr>
+<td width='5'  valign='top'><div style='float:left; background:url(http://media2.monsterindia.com/v2.1/icon.png) -47px 0px; width:4px; height:4px;'></div></td><td width='961' style='padding:22px 17px 22px 17px;'>
+<table width='100%' border='0' cellspacing='0' cellpadding='0'>
+<tr>
+	<td width='25%' height='23'  valign='top' class='txt_13 txt_orange' style='border-bottom:#cdd1ba 1px solid;'>For Jobs Seekers</td>
+	<td width='25%'  valign='top' class='txt_13 txt_orange' style='border-bottom:#cdd1ba 1px solid;'>Jobs By Functions</td>
+	<td width='25%'  valign='top' class='txt_13 txt_orange' style='border-bottom:#cdd1ba 1px solid;'>Jobs By Location</td>
+	<td width='25%'  valign='top' class='txt_13 txt_orange' style='border-bottom:#cdd1ba 1px solid;'> About Our Site </td>
+</tr>
+	<tr><td  valign='top' class='footerlinks' style='border-top:#ffffff 1px solid; padding:7px 0px;'><div id='footerlinks'> 
+<a href='http://www.monsterindia.com/'>Home</a> 
+<a href='http://jobsearch.monsterindia.com/search.html'>Search Jobs</a> 
+<a href='http://jobs.monsterindia.com/'>View All Jobs</a>
+<a href='http://www.monsterindia.com/monster-jobs.html'>Monster Jobs</a>
+<a href='http://my.monsterindia.com/create_account.html'>Resume at Monster</a> 
+<a href='http://mobile.monsterindia.com/index.html'>Jobs On Mobile</a> 
+<a href='http://my.monsterindia.com/manageagents.html'>Get Jobs in Email</a> 
+<a href='http://company.monsterindia.com/index.html'>Know About Companies</a> 
+<a href='http://my.monsterindia.com/my_monster.html'>My Monster</a> 
+<a href='http://blog.monsterindia.com/'>Blog</a> 
+<a href='http://content.monsterindia.com/index.html'>Career Center</a> 
+<a href='http://www.monsterindia.com/help.html'>Help</a> </div></td>
+<td  valign='top' class='footerlinks' style='border-top:#ffffff 1px solid; padding:7px 0px;'><div id='footerlinks'> 
+<a href='http://jobsearch.monsterindia.com/category/sales.html'>Sales Jobs in India</a> 
+ <a href='http://jobsearch.monsterindia.com/category/it.html'>IT Jobs in India</a> 
+<a href='http://jobsearch.monsterindia.com/category/it.html'>Software Jobs in India</a> 
+<a href='http://jobsearch.monsterindia.com/category/finance.html'>Finance Jobs in India</a> 
+<a href='http://jobsearch.monsterindia.com/category/production.html'>Engineering Jobs</a> 
+<a href='http://company.monsterindia.com/company-jobs-a.html'>Companies</a> 
+<a href='http://pa.monsterindia.com/index.html'>Placement Consultants</a> 
+<a href='http://jobsearch.monsterindia.com/industry/index.html'>Jobs by Industry</a> 
+<a href='http://jobsearch.monsterindia.com/category/rss_index.html'  style='text-decoration: none;'>RSS Feed <img src='http://media2.monsterindia.com/v2.1/icon_RSS.gif'  align='absmiddle' border='0'></a>
+
+</div></td>
+
+<td  valign='top' class='footerlinks' style='border-top:#ffffff 1px solid; padding:7px 0px;'><div id='footerlinks'> 
+<a href='http://jobsearch.monsterindia.com/location/bangalore.html'>Jobs in Bangalore</a> 
+<a href='http://jobsearch.monsterindia.com/location/chandigarh.html'>Jobs in Chandigarh</a> 
+<a href='http://jobsearch.monsterindia.com/location/chennai.html'>Chennai Jobs</a> 
+<a href='http://jobsearch.monsterindia.com/location/delhi.html'>Delhi Jobs</a> 
+<a href='http://jobsearch.monsterindia.com/searchresult.html?loc=5'>Jobs in Gurgaon</a> 
+<a href='http://jobsearch.monsterindia.com/location/hyderabad.html'>Jobs in Hyderabad</a> 
+<a href='http://jobsearch.monsterindia.com/searchresult.html?loc=9'>Jobs in Noida</a> 
+<a href='http://jobsearch.monsterindia.com/location/mumbai.html'>Jobs in Mumbai</a> 
+<a href='http://jobsearch.monsterindia.com/location/pune.html'>Jobs in Pune</a> 
+<a href='http://www.monsterindia.com/'>Jobs in India</a> 
+<a href='http://jobsearch.monsterindia.com/international_jobs.html'>International Jobs</a></div></td><td  valign='top' class='footerlinks' style='border-top:#ffffff 1px solid; padding:7px 0px;'><div id='footerlinks'> 
+<a href='http://www.monsterindia.com/contact_us.html'>Contact Us</a> 
+<a href='http://www.monsterindia.com/about_us.html'>About Monster</a> 
+<a href='http://www.monsterindia.com/privacy.html'>Privacy Commitment</a> 
+<a href='http://www.monsterindia.com/besafe.html'>Be Safe</a> 
+<a href='http://www.monsterindia.com/terms_of_use.html'>Terms of Use</a> 
+<a href='http://www.monsterindia.com/feedback.html'>Report a Bug/Abuse</a> 
+<a href='http://www.monsterindia.com/complaints.html'>Complaint</a> 
+<a href='http://jobsearch.monsterindia.com/download_searchbox.html'>Add Job Search Box to Your Site</a> 
+<a href='http://www.monsterindia.com/sitemap.html'>Sitemap</a> 
+<a href='http://www.monsterindia.com/security/security_center.html'>Fraud/Security</a></div></td></tr></table></td>
+<td width='5' align='right' valign='top'><div style='float:right; background:url(http://media2.monsterindia.com/v2.1/icon.png) -51px 0px; width:4px; height:4px;'></div></td></tr></table></td></tr></table>
+<table width='971' border='0' align='center' cellpadding='0' cellspacing='0'>
+<tr>
+	<td height='37'  valign='top' class='footer2'>
+	<div style='float:left; background:url(http://media2.monsterindia.com/v2.1/icon.png) -47px 0px; width:4px; height:4px;'></div>
+	<div style='float:right; background:url(http://media2.monsterindia.com/v2.1/icon.png) -51px 0px; width:4px; height:4px;'></div>
+	</td>
+</tr>
+</table>
+<table width='971' border='0' align='center' cellpadding='0' cellspacing='0'>
+<tr>
+	<td height='100' align='center' class='footertxt'>
+	<span class='bold'>For Employers:</span> 
+	<a href='http://recruiter.monsterindia.com/'  class='footertxt'>Home</a> | <a href='http://recruiter.monsterindia.com/ecom/'  class='footertxt'>Buy Resume Database Access</a> | <a href='http://recruiter.monsterindia.com/ecom/'  class='footertxt'>Buy Job Postings</a> | <a href='http://recruiter.monsterindia.com/index.html'  class='footertxt'>Employer Login</a> <br />&copy; 2010 Monster - All Rights Reserved - U.S. Patent No. 5,832,497 - NYSE: MWW<br /><span class='bold'>Toll free : 1-800-4196666, +91-40-66116611 or <a href='mailto:info@monsterindia.com'  class='footertxt'>info@monsterindia.com</a></span>
+	</td>
+</tr>
+</table>
+</table>
+
+<SCRIPT src="http://media2.monsterindia.com/i_ssdc.js"></SCRIPT>
+ 
+</body>
+
+</html>
+

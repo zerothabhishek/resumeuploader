@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<noscript><meta http-equiv="refresh" content="0; URL=http://my.naukri.com/manager/createacc2.php?&nojs=1"></noscript>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="Post your Resume online for free and get free Job Alerts. Receive Queries from Employers/Recruiters. Post your CV Now!">
+<title>Resume Manager - Post Resume Online - Submit your CV - Naukri.com</title>
+<link rel="stylesheet" type="text/css" href="http://static.naukimg.com/manager/theme/theme1/includes/resman.14-04-10.css" />
+</head>
+<script language="javascript">
+var CONTACT_US_URL = "http://jobsearch.naukri.com/mynaukri/mn_contactus.php";
+var ABOUT_US_URL = "http://jobsearch.naukri.com/mynaukri/mn_aboutus.php";
+var FAQ_URL = "http://my.naukri.com/faq/faq.php";
+var TNC_URL = "http://jobsearch.naukri.com/mynaukri/mn_termsconditions.php#g1";
+var JOBSEEKER_REPORT_PROBLEM_URL = "http://w5.naukri.com/fdbck/main/feedback.php?app_id=15";
+var ID = "";
+var sel_FAREA = "";
+var sel_EXPYEAR = "";
+var sel_EXPMONTH = "";
+var sel_CTCLACS = "";
+var sel_CTCTHOUSANDS = "";
+var sel_INDUSTRY = "";
+var sel_UGCOURSE = "";
+var sel_PGCOURSE = "";
+var sel_PPGCOURSE = "";
+var sel_COUNTRY = "";
+var sel_CITY = "";
+var DBMPHONE = "";
+var USERNAME = "";
+var PASSWORD = "";
+var CPASSWORD = "";
+var CNAME = "";
+var EMAIL = "";
+var MPHONE = "";
+var SMSALERT = "Y";
+var COUNTRYCODE = "";
+var AREACODE = "";
+var LANDLINE = "";
+var CTCTYPE = "I";
+var KEYWORDS = "";
+var RESUMEHEADLINE = "";
+var OUGCOURSE = "";
+var OPGCOURSE = "";
+var OPPGCOURSE = "";
+var UPLOADCVPATH = "";
+var CURR_DIP_CNT = "0"; 
+var MAX_DIP_CNT = "3";
+var RESB_VAR = "";
+var RESB_VAL = "RESBILLING";
+var OTHERSRCP = "5423";
+var UNREGID = "";
+var PARSERSUG = "";
+var IMPORTSRC = "";
+var IMPORTID = "";
+var IMPORTS = "";
+var LOGINURL = "http://my.naukri.com/";
+var FORGOT_PASSWORD_URL = "http://my.naukri.com/ForgotPassword/gtPass";
+var g_jobCount = "";
+var g_Keyword2 = "";
+var g_jobCount = "";
+var g_Keyword1 = "";
+// Mailer settings
+var UP = "UP";
+var RS = "RS";
+var VA = "VA";
+var CM = "CM";
+var PM = "PM";
+var CS = "CS";
+
+var arrError = new Array();
+  var arrErrClass = new Array();
+  var CVSTAT = new Array();
+    var page2Data = new Array();
+    var showImport = "";
+var hiddenStr = "";
+</script>
+<script language="javascript"  src="http://static.naukimg.com/manager/js/page1_var-23-06-2010.js"></script>
+<script language="javascript"  src="http://static.naukimg.com/manager/js/page1_func-16-04-10.js"></script>
+<script language="javascript">
+var sleepSec = 0;
+var df= document.page1;
+var Images_Path = 'http://static.naukimg.com/manager/images';
+var ErrorDetails = new Array();
+var alreadyFocussed = false;
+var fd_tout = 10000;
+var arr_opacThread = {}; // prevent multiple parallel threads on "correct" img
+var exp_fresher = '99';
+var not_pursuing_grad = '1';
+var requester = null;
+var max_email_disp_len = 25;
+var spamChkEmailAjaxObj = null;
+var arrInvalidDomain=new Array( "yahoomail.com","yahoo.com",
+    "yahoomail.co.in","yahoo.co.in",
+    "yahoo.com.in","yahoo.co.in",
+    "redifmail.com","rediffmail.com",
+    "radiffmail.com","rediffmail.com",
+    "gmai.com","gmail.com"
+    );
+var pattern = /[^a-zA-Z0-9\s&.,\-]/;
+var pattern2 = /[^a-zA-Z0-9'\s&.,\-]/;
+var arrayIds = Array('cname','email','country','city','countrycode','areacode','landline','mphone','expyear','expmonth','ctclacs','ctcthousands','farea','industry','ugcourse','pgcourse','ppgcourse','txtcv');
+var arrayChangedElements = Array();
+var defaultSkillsText = "Please enter your areas of expertise/specialization.";
+//var maxdiplomaid = 'diploma'+(document.getElementById("maxDipCnt").value - 1);
+var fbDataUrl = "/manager/importProfile.php?impsrc=1";
+var importProfile = false;
+</script>
+
+<!-- <body onload="v_init();onloadEvents();  " > -->
+<body>
+<div class="w770">
+	<div class="fright padT30 font11">
+				 <a href="http://my.naukri.com/" class="blue">Already Registered? Sign in</a>&nbsp;|&nbsp;<a href="https://login.naukri.com/nLogin/forgotpass.php" class="blue" target="_BLANK">Forgot Login Details?</a>&nbsp;|&nbsp;<a href="http://w5.naukri.com/fdbck/main/feedback.php?app_id=15&id=" class="blue" target="_BLANK">Report a Problem</a>
+	</div>
+	<a href="http://www.naukri.com?id="><img src="http://static.naukimg.com/manager/images/jobs-india.v2.gif" alt="naukri.com" width="251" height="56" vspace="10" border="0"/></a>
+</div>
+
+<div id="formBefore"></div>
+<div class="w770 brd">  
+<div class="cls w770"><img src="http://static.naukimg.com/manager/images/spacer.gif" width="1" height="10" alt="" /></div>
+
+
+
+
+<noscript><div class="w770 jser"><img src="http://static.naukimg.com/manager/images/jsoff.gif" style="vertical-align: middle;"> Javascript is disabled in your browser. Due to this certain functionalities will not work. <a href="http://jobsearch.naukri.com/mynaukri/js_enable.php" target="_blank">Click Here</a>, to know how to enable it.</div><div class="cls w770"><img src="http://static.naukimg.com/manager/images/spacer.gif" width="1" height="10" alt="" /></div></noscript>
+
+<div class="cls w770 errorhead" id="error_topmsgdiv" style="display:NONE"><span id="error_topmsgspan"></span></div>
+<div class="cls w770"><img src="http://static.naukimg.com/manager/images/spacer.gif" width="1" height="5" alt="" /></div>
+    <div class="w770" align="right"><span class="red">*</span> Mandatory Fields&nbsp;&nbsp;&nbsp;</div>
+    <div class="cls w770"><img src="http://static.naukimg.com/manager/images/spacer.gif" width="1" height="15" alt=""  /></div>
+<div class="w770" id="maincont">
+<!--left container starts-->
+<div id="form"></div>
+<!--left container ends-->
+
+<!--right container starts-->
+<div class="fright w225" id="rtcont">
+<div id="rightContainer" class="w225"></div>
+<div class="sp15"></div>
+<div class='w225'>
+<div class="ip_bxTop1">Naukri.com helps you...</div>
+<div class="rtadbg1">
+<div class="cls"><img src="http://static.naukimg.com/manager/images/spacer.gif" width="1" height="10" alt="" /></div>
+
+<ul>
+<li>Keep your job-search confidential</li>
+<li>Control your privacy</li>
+<li>Reach to over 35000 recruiters</li>
+<li>Get Job Alerts in your inbox</li>
+<li>Apply to jobs from your Mobile</li>
+</ul>
+
+<div class="cls"><img src="http://static.naukimg.com/manager/images/spacer.gif" width="1" height="5" alt="" /></div>
+</div>
+<div class="ip_bxBot ip_botAd"><div class="clHere"><span class="orCont1">&nbsp;</span></div></div>
+<!-- empty container to move the import box to after import -->
+<div id="importBox2" style="display:none">
+</div>
+</div>
+</div>
+<!--right container ends-->
+</div>
+<div class="cls"><img src="http://static.naukimg.com/manager/images/spacer.gif" width="1" height="1" alt="" /></div>
+</div>
+<div id='footer'></div>
+<!--lightbox area-->
+<div id="FirstNaukriLightbox"></div>
+<!--lightbox area-->
+<!-- Email Lightbox starts -->
+<div id="EmailLightbox"></div>
+<!-- email Lightbox ends -->
+<!-- VV IMPORTANT : No code should appear below urchin code -->
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+<script type="text/javascript">
+_uacct = "UA-182658-1";
+_udn="naukri.com";
+urchinTracker();
+</script><iframe src="http://www.vizury.com/analyze/analyze.php?account_id=VIZ-VRM-1150&param=100-122.164.72.215" scrolling="no" width="1" height="1" marginheight="0" marginwidth="0" frameborder="0"></iframe>
+<!-- google code starts -->
+<!-- Google Code for page1 Remarketing List -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1056982488;
+var google_conversion_language = "en";
+var google_conversion_format = "3";
+var google_conversion_color = "666666";
+var google_conversion_label = "PGveCKzC1wEQ2IuB-AM";
+var google_conversion_value = 0;
+/* ]]> */
+</script>
+<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1056982488/?label=PGveCKzC1wEQ2IuB-AM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+<!-- google code ends -->
+</body>
+<script language='javascript'>showFormBefore();showForm();showFooter();showLightBox();</script>
+<script language='javascript'>var maxdiplomaid = 'diploma'+(document.getElementById("maxDipCnt").value - 1);</script>
+<script language="javascript"  src="http://static.naukimg.com/manager/js/common_2010-05-20.js"></script>
+<script language="javascript"  src="http://static.naukimg.com/manager/js/page1_validation-30-06-2010.js"></script> 
+<script language="javascript">formOnload();</script> 
+</html>	
